@@ -1,8 +1,8 @@
 import React from 'react';
-import './App.css';
-import LoginForm from "./pages/login/loginForm";
-import VisitList from "./pages/visitList/visitList";
-import Registration from "./pages/newRegistrationForm/registration";
+
+import LoginForm from "./pages/login/LoginForm";
+import VisitList from "./pages/visitList/VisitList";
+import Registration from "./pages/newRegistrationForm/Registration";
 import {
     HashRouter,
     Route,
@@ -16,9 +16,9 @@ function App() {
     return (
         <HashRouter>
             <Routes>
-                    <Route path="/" element={<LoginForm/>}/>
-                    <Route path="/visitList" element={<VisitList/>}/>
-                    <Route path="/registration" element={<Registration/>}/>
+                    <Route path="/" element={<LoginForm />}/>
+                    <Route path="/visitList" element={<VisitList />}/>
+                    <Route path="/registration" element={<Registration />}/>
             </Routes>
         </HashRouter>
     )

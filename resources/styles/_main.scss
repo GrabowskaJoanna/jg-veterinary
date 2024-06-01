@@ -1,0 +1,12 @@
+@import "abstract/variables";
+@import "components/navbar";
+@import "components/reset";
+@import "components/icons";
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: $background-color;
+  font-family: $primary-font;
+}

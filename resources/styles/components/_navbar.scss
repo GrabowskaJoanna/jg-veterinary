@@ -1,32 +1,33 @@
-@import "variebles";
+@import "../abstract/variables";
 
 .header {
   display: flex;
   background-color: $primary-color;
   justify-content: space-between;
-  color: white;
+  align-items: center;
+  color: $text-color;
   font-size: 22px;
+  font-weight: bold;
 }
 
 .header-nav-links {
   display: flex;
-  background-color: #35A5AC;
-  padding: 20px;
+  background-color: $primary-color;
+  align-items: center;
 
   .link {
     text-decoration: none;
     padding: 20px;
-    font-weight: 500;
-    color: white;
+    color: $text-color;
 
     &:hover {
-      background-color: white;
+      background-color: $text-color;
       color: $primary-color;
       border-radius: 6px;
     }
 
     &.active {
-      background-color: white;
+      background-color: $text-color;
       color: $primary-color;
       border-radius: 6px;
     }
@@ -49,8 +50,8 @@
       top: 50%;
       transform: translateY(-50%);
       width: 2px;
-      height: 62px;
-      background-color: white;
+      height: 66px;
+      background-color: $text-color;
     }
   }
 
@@ -60,12 +61,23 @@
     border: none;
     font-size: inherit;
     font-family: inherit;
-    padding: 18px;
+    padding: 18px 18px 18px 18px;
+    border-bottom: 3px solid $primary-color;
+    display: flex;
+    align-items: center;
+
+    i {
+      padding-right: 6px;
+    }
+    p {
+      font-weight: bold;
+    }
+
+
     &:hover {
       color: #F7BF46;
       cursor: pointer;
       border-bottom: 3px solid #F7BF46;
-      padding-bottom: 16px;
     }
   }
 }

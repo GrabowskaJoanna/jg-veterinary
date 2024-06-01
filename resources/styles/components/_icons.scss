@@ -1,0 +1,72 @@
+@font-face {
+  font-family: 'jg';
+  src: url('../fonts/jg.eot?dlyo4l');
+  src: url('../fonts/jg.eot?dlyo4l#iefix') format('embedded-opentype'),
+  url('../fonts/jg.ttf?dlyo4l') format('truetype'),
+  url('../fonts/jg.woff?dlyo4l') format('woff'),
+  url('../fonts/jg.svg?dlyo4l#jg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'jg' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-spinner {
+  &:before {
+    content: $icon-spinner;
+  }
+}
+
+.icon-logo {
+  &:before {
+    content: $icon-logo;
+  }
+}
+
+.icon-warning {
+  &:before {
+    content: $icon-warning;
+  }
+}
+
+.icon-close {
+  &:before {
+    content: $icon-close;
+  }
+}
+
+.icon-success {
+  &:before {
+    content: $icon-success;
+  }
+}
+
+.icon-logout {
+  &:before {
+    content: $icon-logout;
+  }
+}
+
+.icon-arrow-right {
+  &:before {
+    content: $icon-arrow-right;
+  }
+}
+
+.icon-arrow-left {
+  &:before {
+    content: $icon-arrow-left;
+  }
+}
