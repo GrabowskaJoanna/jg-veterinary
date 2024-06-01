@@ -33,6 +33,7 @@
     ]
   },
   "devDependencies": {
+    "sass": "^1.77.4",
     "svg-url-loader": "^8.0.0",
     "webpack-cli": "^5.1.4"
   }

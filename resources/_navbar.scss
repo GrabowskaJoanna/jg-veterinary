@@ -1,0 +1,71 @@
+@import "variebles";
+
+.header {
+  display: flex;
+  background-color: $primary-color;
+  justify-content: space-between;
+  color: white;
+  font-size: 22px;
+}
+
+.header-nav-links {
+  display: flex;
+  background-color: #35A5AC;
+  padding: 20px;
+
+  .link {
+    text-decoration: none;
+    padding: 20px;
+    font-weight: 500;
+    color: white;
+
+    &:hover {
+      background-color: white;
+      color: $primary-color;
+      border-radius: 6px;
+    }
+
+    &.active {
+      background-color: white;
+      color: $primary-color;
+      border-radius: 6px;
+    }
+  }
+}
+
+.header-user {
+  display: flex;
+  font-size: 22px;
+  align-items: center;
+
+  .header-user-name {
+    position: relative;
+    padding-right: 20px;
+
+    &:after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 2px;
+      height: 62px;
+      background-color: white;
+    }
+  }
+
+  .header-user-btn {
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    font-size: inherit;
+    font-family: inherit;
+    padding: 18px;
+    &:hover {
+      color: #F7BF46;
+      cursor: pointer;
+      border-bottom: 3px solid #F7BF46;
+      padding-bottom: 16px;
+    }
+  }
+}

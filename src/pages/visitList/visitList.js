@@ -2,13 +2,14 @@ import React from 'react';
 import {Link} from "react-router-dom";
 import NavBar from "../../abstract/navBar";
 
-const Registration = () => {
-    return (<>
+const VisitList = () => {
+    return (
+        <>
             <NavBar/>
-            <h1>Rejestracja</h1>
+            <h1>Terminarz</h1>
         </>
     )
+
 }
 
-
-export default Registration;
+export default VisitList;

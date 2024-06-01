@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import LoginForm from "./pages/login/loginForm";
-import VisitList from "./pages/visitList/schedule";
+import VisitList from "./pages/visitList/visitList";
 import Registration from "./pages/newRegistrationForm/registration";
 import {
     HashRouter,
