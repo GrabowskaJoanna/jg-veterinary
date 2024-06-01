@@ -1,0 +1,83 @@
+@import "../abstract/variables";
+
+.header {
+  display: flex;
+  background-color: $primary-color;
+  justify-content: space-between;
+  align-items: center;
+  color: $text-color;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.header-nav-links {
+  display: flex;
+  background-color: $primary-color;
+  align-items: center;
+
+  .link {
+    text-decoration: none;
+    padding: 20px;
+    color: $text-color;
+
+    &:hover {
+      background-color: $text-color;
+      color: $primary-color;
+      border-radius: 6px;
+    }
+
+    &.active {
+      background-color: $text-color;
+      color: $primary-color;
+      border-radius: 6px;
+    }
+  }
+}
+
+.header-user {
+  display: flex;
+  font-size: 22px;
+  align-items: center;
+
+  .header-user-name {
+    position: relative;
+    padding-right: 20px;
+
+    &:after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 2px;
+      height: 66px;
+      background-color: $text-color;
+    }
+  }
+
+  .header-user-btn {
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    font-size: inherit;
+    font-family: inherit;
+    padding: 18px 18px 18px 18px;
+    border-bottom: 3px solid $primary-color;
+    display: flex;
+    align-items: center;
+
+    i {
+      padding-right: 6px;
+    }
+    p {
+      font-weight: bold;
+    }
+
+
+    &:hover {
+      color: #F7BF46;
+      cursor: pointer;
+      border-bottom: 3px solid #F7BF46;
+    }
+  }
+}
