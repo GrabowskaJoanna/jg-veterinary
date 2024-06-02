@@ -13,4 +13,11 @@
   box-shadow: 0 0 9 $primary-color;
   padding: 10px;
   cursor: pointer;
+
+  &:hover {
+    background-color: $inputs-color;
+    color: $primary-color;
+    border: 1px solid $primary-color;
+    box-shadow: none;
+  }
 }
