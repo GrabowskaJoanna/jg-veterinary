@@ -1,0 +1,16 @@
+@import "../abstract/variables";
+
+.primary-button {
+  background-color: $primary-color;
+  color: $text-color;
+  font-size: 22px;
+  font-weight: bold;
+  border-radius: 6px;
+ width: 310px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid $primary-color;
+  box-shadow: 0 0 9 $primary-color;
+  padding: 10px;
+  cursor: pointer;
+}
