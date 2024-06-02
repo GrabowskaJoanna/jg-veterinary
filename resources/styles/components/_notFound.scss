@@ -1,13 +1,13 @@
 @import "../abstract/variables";
 
-.not-found-header {
+.not-found {
   color: $text-color;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100vw;
   height: 100vh;
-  h1 {
+  .not-found-text {
     font-size: 40px;
     font-weight: bold;
     text-align: center;
