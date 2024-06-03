@@ -4,7 +4,7 @@ import TextField from "../../../abstract/inputs/TextField";
 const RegistrationOwner = () => {
   return (
     <>
-      <h2 className="registration-section-header">Pacjent:</h2>
+      <h2 className="registration-section-header">Właściciel:</h2>
       <div className="registration-section">
         <section className="registration-inputs">
           <TextField text="Imię" name="owner-name" type="text" />

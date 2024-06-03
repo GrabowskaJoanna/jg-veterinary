@@ -6,7 +6,7 @@ import RegistrationAppointment from "./components/RegistrationAppointment";
 import RegistrationPatient from "./components/RegistrationPatient";
 import RegistrationOwner from "./components/RegistrationOwner";
 import DatePicker from "../../abstract/inputs/DatePicker";
-import PrimaryButton from "../../abstract/buttons/PrimaryButton";
+import Button from "../../abstract/buttons/Button";
 
 export const Registration = () => {
   return (
@@ -18,7 +18,8 @@ export const Registration = () => {
         <RegistrationPatient />
         <RegistrationOwner />
         <div className="registration-buttons">
-          <PrimaryButton text="Zapisz" className="primary-button" />
+          <Button text="Anuluj" className="btn secondary-button" />
+          <Button text="Zapisz" className="btn primary-button" />
         </div>
       </div>
       <Footer />
