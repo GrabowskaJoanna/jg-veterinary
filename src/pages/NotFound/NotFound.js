@@ -1,12 +1,17 @@
-import React from 'react';
+import React from "react";
+import NavBar from "../../abstract/NavBar";
+import Footer from "../../abstract/Footer";
 
 const NotFound = () => {
-    return (
-        <div className="not-found">
-            <p className="not-found-text">404 <br/> Nothing is here</p>
-        </div>
-    )
-
-}
+  return (
+    <>
+      <NavBar />
+      <p className="not-found">
+        404 <br /> Nothing is here
+      </p>
+      <Footer />
+    </>
+  );
+};
 
 export default NotFound;

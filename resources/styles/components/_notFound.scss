@@ -1,15 +1,14 @@
 @import "../abstract/variables";
 
 .not-found {
-  color: $text-color;
+  box-sizing: border-box;
+  color: black;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: 100vh;
-  .not-found-text {
-    font-size: 40px;
-    font-weight: bold;
-    text-align: center;
-  }
+  margin: auto;
+  position: fixed;
+  top: 45%;
+  left: 45%;
+  font-size: 40px;
+  font-weight: bold;
+  text-align: center;
 }
