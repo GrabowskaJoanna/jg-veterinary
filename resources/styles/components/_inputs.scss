@@ -4,10 +4,9 @@
 label {
   display: flex;
   flex-direction: column;
-  margin-left: auto;
-  margin-right: auto;
   margin-bottom: 20px;
   font-weight: bold;
+  font-size: 12px;
 }
 
 input {
@@ -20,3 +19,40 @@ input {
   padding-left: 10px;
   color: black;
 }
+
+textarea {
+  background-color: $inputs-color;
+  border: none;
+  width: 263px;
+  height: 116px;
+  border-radius: 6px;
+  margin-top: 6px;
+  padding-left: 10px;
+  color: black;
+}
+
+select {
+  background-color: $inputs-color;
+  border: none;
+  width: 263px;
+  height: 40px;
+  border-radius: 6px;
+  margin-top: 6px;
+  padding-left: 10px;
+  color: black;
+  appearance: none;
+  font-weight: bold;
+
+  background-image: url('data:image/svg+xml;utf8,<svg fill="black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 12a1 1 0 01-.707-.293l-4-4a1 1 0 111.414-1.414L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4A1 1 0 0110 12z" clip-rule="evenodd"></path></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 30px;
+
+  option {
+    background-color: $text-color;
+    color: black;
+    font-weight: bold;
+  }
+}
+
+
