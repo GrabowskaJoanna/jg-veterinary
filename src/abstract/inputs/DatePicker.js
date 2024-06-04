@@ -17,7 +17,6 @@ const DateInput = ({ text }) => {
           selected={selectedDate}
           onChange={handleDateChange}
           dateFormat="dd/MM/yyyy"
-          placeholderText="Wybierz datę"
         />
       </label>
     </div>
