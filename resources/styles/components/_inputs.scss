@@ -42,6 +42,8 @@ select {
   color: black;
   appearance: none;
   font-weight: bold;
+  font-size: 12px;
+  font-family: $primary-font;
 
   background-image: url('data:image/svg+xml;utf8,<svg fill="black" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 12a1 1 0 01-.707-.293l-4-4a1 1 0 111.414-1.414L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4A1 1 0 0110 12z" clip-rule="evenodd"></path></svg>');
   background-repeat: no-repeat;
@@ -52,6 +54,7 @@ select {
     background-color: $text-color;
     color: black;
     font-weight: bold;
+    font-size: 12px;
   }
 }
 

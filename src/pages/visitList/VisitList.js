@@ -9,8 +9,16 @@ const VisitList = () => {
   return (
     <>
       <NavBar />
-      <h1 className="visit-header">Terminarz</h1>
-      <div></div>
+      <div className="visit-container">
+        <h1 className="visit-header">Terminarz</h1>
+        <div className="visit-pagination">
+          <i className="icon-arrow-left" />
+          <p>
+            Strona <span>1</span> z 3
+          </p>
+          <i className="icon-arrow-right" />
+        </div>
+      </div>
       <table className="visit-table">
         <thead className="visit-table-header">
           <tr>

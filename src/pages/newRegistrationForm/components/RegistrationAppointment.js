@@ -13,17 +13,10 @@ const RegistrationAppointment = () => {
           <TextField text="Cel wizyty" name="visit-purpose" type="text" />
           <DatePicker text="Data wizyty" />
         </section>
-        <section className="registration-selects">
-          <SelectInput
-            text="Status"
-            options={["Option 1", "Option 2", "Option 3", "Option 4"]}
-          />
-          <SelectInput
-            text="Lakarz wykonujący"
-            options={["Option 1", "Option 2", "Option 3", "Option 4"]}
-          />
-        </section>
         <TextArea text="Opis" />
+        <section className="registration-selects single-input">
+          <SelectInput text="Status" options={["Option 1", "Option 2"]} />
+        </section>
       </div>
     </>
   );
