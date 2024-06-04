@@ -14,7 +14,7 @@ const RegistrationPatient = () => {
           <TextField text="Gatunek" name="species" type="text" />
           <TextField text="Wiek" name="age" type="number" />
         </section>
-        <div className="last-input">
+        <div className="single-input">
           <TextField text="Rasa" name="breed" type="text" />
         </div>
       </div>
