@@ -21,6 +21,9 @@
   padding: 15px 70px;
   max-height: 70vh;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
 }
 
