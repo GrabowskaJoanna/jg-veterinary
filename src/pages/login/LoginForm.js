@@ -4,7 +4,7 @@ import Button from "../../abstract/buttons/Button";
 import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
-  const [username, setUserName] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
@@ -48,8 +48,8 @@ const LoginForm = () => {
             type="text"
             name="name"
             text="Nazwa użytkownika*"
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
           <TextField
             type="password"
