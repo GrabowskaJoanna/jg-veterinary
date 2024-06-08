@@ -8,7 +8,7 @@ const RegistrationPatient = () => {
       <div className="registration-section">
         <section className="registration-inputs">
           <TextField text="Nr chipa" name="chip" type="text" />
-          <TextField text="Imię" name="patient-name" type="text" />
+          <TextField text="Imię" name="patient_name" type="text" />
         </section>
         <section className="registration-inputs">
           <TextField text="Gatunek" name="species" type="text" />

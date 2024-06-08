@@ -1,7 +1,13 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const NavBar = () => {
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
+
   return (
     <div className="header">
       <div className="header-nav">
@@ -28,7 +34,7 @@ const NavBar = () => {
         <h1 className="header-user-name">Name</h1>
         <button className="header-user-btn btn">
           <i className="icon-logout" />
-          <p>Wyloguj</p>
+          <p onClick={handleLogOut}>Wyloguj</p>
         </button>
       </div>
     </div>

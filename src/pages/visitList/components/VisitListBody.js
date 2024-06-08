@@ -1,28 +1,27 @@
 import React from "react";
-import visits from "../visits";
 
-const VisitListBody = () => {
+const VisitListBody = ({ items }) => {
   return (
     <tbody className="visit-table-body">
-      {visits.map(
+      {items.map(
         ({
           id,
-          chip_number,
+          chip,
           visit_purpose,
           visit_date,
           species,
-          status,
-          name,
-          surname,
+          visit_status,
+          owner_name,
+          owner_surname,
         }) => (
           <tr key={id}>
-            <td>{chip_number}</td>
+            <td>{chip}</td>
             <td>{visit_purpose}</td>
             <td>{visit_date}</td>
             <td>{species}</td>
-            <td>{status}</td>
-            <td>{name}</td>
-            <td>{surname}</td>
+            <td>{visit_status}</td>
+            <td>{owner_name}</td>
+            <td>{owner_surname}</td>
             <td>
               <i className="icon-close"></i>
             </td>

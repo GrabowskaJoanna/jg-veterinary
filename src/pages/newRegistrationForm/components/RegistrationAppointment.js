@@ -10,12 +10,16 @@ const RegistrationAppointment = () => {
       <h2 className="registration-section-header">Wizyta:</h2>
       <div className="registration-section">
         <section className="registration-inputs">
-          <TextField text="Cel wizyty" name="visit-purpose" type="text" />
-          <DatePicker text="Data wizyty" />
+          <TextField text="Cel wizyty" name="visit_purpose" type="text" />
+          <DatePicker text="Data wizyty" name="visit_date" />
         </section>
-        <TextArea text="Opis" />
+        <TextArea name="visit_description" text="Opis" />
         <section className="registration-selects single-input">
-          <SelectInput text="Status" options={["Option 1", "Option 2"]} />
+          <SelectInput
+            name="visit_status"
+            text="Status"
+            options={["Standard", "Pilne"]}
+          />
         </section>
       </div>
     </>

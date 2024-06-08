@@ -1,11 +1,9 @@
 import React from "react";
 import NavBar from "../../abstract/NavBar";
 import Footer from "../../abstract/Footer";
-import TextArea from "../../abstract/inputs/TextArea";
 import RegistrationAppointment from "./components/RegistrationAppointment";
 import RegistrationPatient from "./components/RegistrationPatient";
 import RegistrationOwner from "./components/RegistrationOwner";
-import DatePicker from "../../abstract/inputs/DatePicker";
 import Button from "../../abstract/buttons/Button";
 
 export const Registration = () => {

@@ -2,17 +2,20 @@ import React, { useState } from "react";
 import TextField from "../../abstract/inputs/TextField";
 import Button from "../../abstract/buttons/Button";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setSessionToken } from "../store/actions";
 
 const LoginForm = () => {
-  const [userName, setUserName] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
   const handleLogin = (e) => {
     e.preventDefault();
 
     const data = {
-      userName,
+      username,
       password,
     };
 
@@ -30,8 +33,13 @@ const LoginForm = () => {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
-        navigate("/visitList");
+        if (data.token && data.token.trim() !== "") {
+          // localStorage.setItem("token", data.token);
+          dispatch(setSessionToken(data.token));
+          navigate("/visitList");
+        } else {
+          console.error("Invalid token received");
+        }
       })
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
@@ -48,8 +56,8 @@ const LoginForm = () => {
             type="text"
             name="name"
             text="Nazwa użytkownika*"
-            value={userName}
-            onChange={(e) => setUserName(e.target.value)}
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
           />
           <TextField
             type="password"

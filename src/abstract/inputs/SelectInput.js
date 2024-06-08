@@ -1,13 +1,15 @@
 import React from "react";
 
-const SelectInput = ({ text, options }) => {
+const SelectInput = ({ text, options, name }) => {
   return (
     <>
       <label>
         {text}
-        <select>
+        <select name={name}>
           {options.map((option, index) => (
-            <option key={index}>{option}</option>
+            <option value={option} key={index}>
+              {option}
+            </option>
           ))}
         </select>
       </label>
