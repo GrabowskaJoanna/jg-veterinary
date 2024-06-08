@@ -4,7 +4,7 @@ import Button from "../../abstract/buttons/Button";
 import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
-  const [userName, setUserName] = useState("");
+  const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ const LoginForm = () => {
     e.preventDefault();
 
     const data = {
-      userName,
+      username,
       password,
     };
 
