@@ -2,7 +2,7 @@ import React from "react";
 
 const VisitListBody = ({ items }) => {
   return (
-    <tbody className="visit-table-body">
+    <tbody className="visit_table_body">
       {items.map(
         ({
           id,
@@ -23,7 +23,7 @@ const VisitListBody = ({ items }) => {
             <td>{owner_name}</td>
             <td>{owner_surname}</td>
             <td>
-              <i className="icon-close"></i>
+              <i className="icon_close"></i>
             </td>
           </tr>
         ),

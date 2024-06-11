@@ -18,11 +18,11 @@ const VisitList = () => {
   return (
     <>
       <NavBar />
-      <div className="visit-container">
-        <h1 className="visit-header">Terminarz</h1>
+      <div className="visit_container">
+        <h1 className="visit_header">Terminarz</h1>
         <Pagination />
       </div>
-      <table className="visit-table">
+      <table className="visit_table">
         <VisitListHeader />
         <VisitListBody items={items} />
       </table>

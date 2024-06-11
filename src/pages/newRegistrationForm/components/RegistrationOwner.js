@@ -4,9 +4,9 @@ import TextField from "../../../abstract/inputs/TextField";
 const RegistrationOwner = () => {
   return (
     <>
-      <h2 className="registration-section-header">Właściciel:</h2>
-      <div className="registration-section">
-        <section className="registration-inputs">
+      <h2 className="registration_section_header">Właściciel:</h2>
+      <div className="registration_section">
+        <section className="registration_inputs">
           <TextField text="Imię" name="owner_name" type="text" />
           <TextField
             text="Numer telefonu"
@@ -14,11 +14,11 @@ const RegistrationOwner = () => {
             type="text"
           />
         </section>
-        <section className="registration-inputs">
+        <section className="registration_inputs">
           <TextField text="Nazwisko" name="owner_surname" type="text" />
           <TextField text="Email" name="email" type="email" />
         </section>
-        <div className="last-input">
+        <div className="last_input">
           <TextField text="Pesel" name="pesel" type="text" />
         </div>
       </div>

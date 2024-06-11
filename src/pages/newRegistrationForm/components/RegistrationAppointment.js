@@ -7,14 +7,14 @@ import DatePicker from "../../../abstract/inputs/DatePicker";
 const RegistrationAppointment = () => {
   return (
     <>
-      <h2 className="registration-section-header">Wizyta:</h2>
-      <div className="registration-section">
-        <section className="registration-inputs">
+      <h2 className="registration_section_header">Wizyta:</h2>
+      <div className="registration_section">
+        <section className="registration_inputs">
           <TextField text="Cel wizyty" name="visit_purpose" type="text" />
           <DatePicker text="Data wizyty" name="visit_date" />
         </section>
         <TextArea name="visit_description" text="Opis" />
-        <section className="registration-selects single-input">
+        <section className="registration_selects single_input">
           <SelectInput
             name="visit_status"
             text="Status"
