@@ -7,7 +7,7 @@
   cursor: pointer;
 }
 
-.primary-button {
+.primary_button {
   background-color: $primary-color;
   color: $text-color;
   border: 1px solid $primary-color;
@@ -15,7 +15,7 @@
   box-shadow: 0 0 9px $primary-color;
 }
 
-.secondary-button {
+.secondary_button {
   background-color: $inputs-color;
   color: $primary-color;
   border: 1px solid $primary-color;

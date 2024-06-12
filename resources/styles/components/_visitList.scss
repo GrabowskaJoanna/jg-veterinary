@@ -1,6 +1,6 @@
 @import "../abstract/variables";
 
-.visit-header {
+.visit_header {
   font-size: 42px;
   color: $primary-color;
   font-weight: bold;
@@ -9,7 +9,7 @@
 
 //table
 
-.visit-table {
+.visit_table {
   background-color: $text-color;
   margin: auto;
   box-sizing: border-box;
@@ -18,7 +18,7 @@
   box-shadow: 0 4px 4px $shadow-color;
   overflow: hidden;
 
-  .visit-table-header {
+  .visit_table_header {
     background-color: $primary-color;
     color: $text-color;
     font-size: 22px;
@@ -45,7 +45,7 @@
     }
   }
 
-  .visit-table-body {
+  .visit_table_body {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -68,7 +68,7 @@
           margin-right: 30px;
         }
 
-        .icon-close {
+        .icon_close {
           color: crimson;
         }
 
@@ -79,12 +79,12 @@
 
 //pagination
 
-.visit-container {
+.visit_container {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.visit-pagination {
+.visit_pagination {
   display: flex;
   padding: 20px;
   margin-right: 20px;

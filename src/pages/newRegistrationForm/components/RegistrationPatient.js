@@ -4,17 +4,17 @@ import TextField from "../../../abstract/inputs/TextField";
 const RegistrationPatient = () => {
   return (
     <>
-      <h2 className="registration-section-header">Pacjent:</h2>
-      <div className="registration-section">
-        <section className="registration-inputs">
+      <h2 className="registration_section_header">Pacjent:</h2>
+      <div className="registration_section">
+        <section className="registration_inputs">
           <TextField text="Nr chipa" name="chip" type="text" />
-          <TextField text="Imię" name="patient-name" type="text" />
+          <TextField text="Imię" name="patient_name" type="text" />
         </section>
-        <section className="registration-inputs">
+        <section className="registration_inputs">
           <TextField text="Gatunek" name="species" type="text" />
           <TextField text="Wiek" name="age" type="number" />
         </section>
-        <div className="single-input">
+        <div className="single_input">
           <TextField text="Rasa" name="breed" type="text" />
         </div>
       </div>

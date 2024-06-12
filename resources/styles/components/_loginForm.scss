@@ -9,7 +9,7 @@
   display: flex;
 }
 
-.form-image {
+.form_image {
   background-image: url("../images/Rectangle14.jpg");
   height: 100vh;
   width: 50%;
@@ -17,7 +17,7 @@
   background-repeat: no-repeat;
 }
 
-.form-login {
+.form_login {
   background-color: $text-color;
   margin: auto;
   border-radius: 24px;
@@ -25,18 +25,18 @@
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
   padding: 20px;
 
-  .form-login-container {
+  .form_login_container {
     display: flex;
     flex-direction: column;
     padding: 70px;
 
-    .form-login-header {
+    .form_login_header {
       font-weight: bold;
       text-align: center;
       font-size: 36px;
       margin-bottom: 50px;
     }
-    .form-login-button {
+    .form_login_button {
       background-color: transparent;
       border: none;
       text-align: left;
