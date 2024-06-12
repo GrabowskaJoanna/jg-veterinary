@@ -10,31 +10,25 @@ const Pagination = () => {
   const handlePageChange = (page) => {
     dispatch(setPage(page));
   };
-  const renderPageNumbers = () => {
-    const pageNumbers = [];
-    for (let i = 1; i <= totalPages; i++) {
-      pageNumbers.push(<button key={i} onClick={() => handlePageChange(i)} />);
-    }
-    return pageNumbers;
-  };
 
   return (
     <div className="visit_pagination">
       <button
+        className="visit_pagination_button"
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
       >
-        <i className="icon-arrow-left" />
+        <i className="icon-arrow-left visit_pagination_icon" />
       </button>
-      {renderPageNumbers()}
       <p>
         Strona <span>{currentPage}</span> z {totalPages}
       </p>
       <button
+        className="visit_pagination_button"
         onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
       >
-        <i className="icon-arrow-right" />
+        <i className="icon-arrow-right visit_pagination_icon" />
       </button>
     </div>
   );

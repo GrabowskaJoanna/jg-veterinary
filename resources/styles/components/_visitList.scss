@@ -17,6 +17,7 @@
   width: 95vw;
   box-shadow: 0 4px 4px $shadow-color;
   overflow: hidden;
+  z-index: 1;
 
   .visit_table_header {
     background-color: $primary-color;
@@ -37,6 +38,7 @@
         &:first-child {
           border-top-left-radius: 12px;
         }
+
         &:last-child {
           width: 35px;
           border-top-right-radius: 12px;
@@ -84,12 +86,29 @@
   justify-content: space-between;
   align-items: center;
 }
+
 .visit_pagination {
   display: flex;
   padding: 20px;
   margin-right: 20px;
   color: $primary-color;
   font-weight: bold;
+
+  .visit_pagination_button {
+    border: none;
+    background-color: transparent;
+
+    &:disabled {
+      .visit_pagination_icon {
+        opacity: 0.3;
+      }
+    }
+
+    .visit_pagination_icon {
+      color: $primary-color;
+    }
+  }
+
   p {
     padding: 0 10px;
   }

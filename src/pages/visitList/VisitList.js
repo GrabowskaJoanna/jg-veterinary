@@ -8,7 +8,7 @@ import VisitListBody from "./components/VisitListBody";
 import { useDispatch, useSelector } from "react-redux";
 import { setItems } from "../store/list-slice";
 
-const VisitList = () => {
+const VisitList = ({ setIsVisible }) => {
   const items = useSelector((state) => state.list.items);
   const token = localStorage.getItem("token");
   const currentPage = useSelector((state) => state.list.currentPage);
@@ -32,33 +32,37 @@ const VisitList = () => {
       }
       const data = await response.json();
       dispatch(setItems(data.items));
-      console.log(data.items);
     } catch (error) {
-      console.error("There was a problem with your fetch operation:", error);
+      console.error("Wystąpił problem z operacją pobierania:", error);
     }
   };
 
   useEffect(() => {
     if (!token) {
-      return;
+      navigate("/");
+    } else {
+      fetchData();
     }
-    fetchData();
-  }, [token, currentPage, limit]);
+  }, [token, currentPage, limit, navigate]);
 
-  return (
-    <>
-      <NavBar />
-      <div className="visit_container">
-        <h1 className="visit_header">Terminarz</h1>
-        <Pagination />
-      </div>
-      <table className="visit_table">
-        <VisitListHeader />
-        <VisitListBody items={items} />
-      </table>
-      <Footer />
-    </>
-  );
+  if (token) {
+    return (
+      <>
+        <NavBar />
+        <div className="visit_container">
+          <h1 className="visit_header">Terminarz</h1>
+          <Pagination />
+        </div>
+        <table className="visit_table">
+          <VisitListHeader />
+          <VisitListBody items={items} setIsVisible={setIsVisible} />
+        </table>
+        <Footer />
+      </>
+    );
+  } else {
+    return null;
+  }
 };
 
 export default VisitList;
