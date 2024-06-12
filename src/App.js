@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import LoginForm from "./pages/login/LoginForm";
 import VisitList from "./pages/visitList/VisitList";
 import Registration from "./pages/newRegistrationForm/Registration";
@@ -12,14 +12,14 @@ import store from "./pages/store/store";
 const App = () => {
   return (
     <Provider store={store}>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path="/" element={<LoginForm />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/visitList" element={<VisitList />} />
           <Route path="/registration" element={<Registration />} />
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </Provider>
   );
 };

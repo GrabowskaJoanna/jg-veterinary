@@ -6,24 +6,24 @@ const VisitListBody = ({ items }) => {
       {items.map(
         ({
           id,
-          chip,
-          visit_purpose,
-          visit_date,
+          chipNumber,
+          visitPurpose,
+          visitDate,
           species,
-          visit_status,
-          owner_name,
-          owner_surname,
+          status,
+          name,
+          surname,
         }) => (
           <tr key={id}>
-            <td>{chip}</td>
-            <td>{visit_purpose}</td>
-            <td>{visit_date}</td>
+            <td>{chipNumber}</td>
+            <td>{visitPurpose}</td>
+            <td>{new Date(visitDate).toLocaleDateString()}</td>
             <td>{species}</td>
-            <td>{visit_status}</td>
-            <td>{owner_name}</td>
-            <td>{owner_surname}</td>
+            <td>{status.toLowerCase()}</td>
+            <td>{name}</td>
+            <td>{surname}</td>
             <td>
-              <i className="icon_close"></i>
+              <i className="icon-close"></i>
             </td>
           </tr>
         ),
