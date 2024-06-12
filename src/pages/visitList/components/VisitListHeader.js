@@ -2,7 +2,7 @@ import React from "react";
 
 const VisitListHeader = () => {
   return (
-    <thead className="visit-table-header">
+    <thead className="visit_table_header">
       <tr>
         <th>Nr chipa</th>
         <th>Cel wizyty</th>

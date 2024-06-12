@@ -4,8 +4,10 @@ import Button from "../../abstract/buttons/Button";
 import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
 
   const navigate = useNavigate();
   const handleLogin = (e) => {
@@ -30,8 +32,13 @@ const LoginForm = () => {
         return response.json();
       })
       .then((data) => {
-        console.log(data);
-        navigate("/visitList");
+        if (data.token && data.token.trim() !== "") {
+          // localStorage.setItem("token", data.token);
+          dispatch(setSessionToken(data.token));
+          navigate("/visitList");
+        } else {
+          console.error("Invalid token received");
+        }
       })
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
@@ -40,10 +47,10 @@ const LoginForm = () => {
 
   return (
     <div className="container">
-      <div className="form-image"></div>
-      <form className="form-login" onSubmit={handleLogin}>
-        <div className="form-login-container">
-          <h1 className="form-login-header">Logowanie</h1>
+      <div className="form_image"></div>
+      <form className="form_login" onSubmit={handleLogin}>
+        <div className="form_login_container">
+          <h1 className="form_login_header">Logowanie</h1>
           <TextField
             type="text"
             name="name"
@@ -58,10 +65,10 @@ const LoginForm = () => {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <button type="button" className="form-login-button">
+          <button type="button" className="form_login_button">
             Nie pamiętasz hasła?
           </button>
-          <Button type="submit" text="Zaloguj" className="btn primary-button" />
+          <Button type="submit" text="Zaloguj" className="btn primary_button" />
         </div>
       </form>
     </div>

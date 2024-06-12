@@ -10,7 +10,7 @@
   font-weight: bold;
 }
 
-.header-nav-links {
+.header_nav_links {
   display: flex;
   background-color: $primary-color;
   align-items: center;
@@ -34,12 +34,12 @@
   }
 }
 
-.header-user {
+.header_user {
   display: flex;
   font-size: 22px;
   align-items: center;
 
-  .header-user-name {
+  .header_user_name {
     position: relative;
     padding-right: 20px;
 
@@ -55,7 +55,7 @@
     }
   }
 
-  .header-user-btn {
+  .header_user_btn {
     background-color: transparent;
     color: inherit;
     border: none;

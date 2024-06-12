@@ -13,7 +13,7 @@
   border-radius: 10px;
 }
 
-.registration-container {
+.registration_container {
   background-color: $text-color;
   margin: 15px 40px;
   border-radius: 12px;
@@ -27,7 +27,7 @@
 
 }
 
-.registration-header {
+.registration_header {
   font-size: 42px;
   font-weight: bold;
   color: $primary-color;
@@ -35,7 +35,7 @@
   padding-left: 40px;
 }
 
-.registration-section {
+.registration_section {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -47,18 +47,18 @@
   }
 }
 
-.registration-section-header {
+.registration_section_header {
   font-size: 20px;
   font-weight: bold;
   margin-bottom: 16px;
 }
 
-.single-input {
+.single_input {
   display: flex;
   align-self: flex-start;
 }
 
-.registration-buttons {
+.registration_buttons {
   display: flex;
   width: 100%;
   justify-content: flex-end;
@@ -70,7 +70,7 @@
 }
 
 @media (width > 1500px) {
-  .registration-container {
+  .registration_container {
     height: 100vh;
   }
 }

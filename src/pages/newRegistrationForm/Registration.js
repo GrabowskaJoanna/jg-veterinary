@@ -1,25 +1,23 @@
 import React from "react";
 import NavBar from "../../abstract/NavBar";
 import Footer from "../../abstract/Footer";
-import TextArea from "../../abstract/inputs/TextArea";
 import RegistrationAppointment from "./components/RegistrationAppointment";
 import RegistrationPatient from "./components/RegistrationPatient";
 import RegistrationOwner from "./components/RegistrationOwner";
-import DatePicker from "../../abstract/inputs/DatePicker";
 import Button from "../../abstract/buttons/Button";
 
 export const Registration = () => {
   return (
     <>
       <NavBar />
-      <h1 className="registration-header">Rejestracja</h1>
-      <div className="registration-container">
+      <h1 className="registration_header">Rejestracja</h1>
+      <div className="registration_container">
         <RegistrationAppointment />
         <RegistrationPatient />
         <RegistrationOwner />
-        <div className="registration-buttons">
-          <Button text="Anuluj" className="btn secondary-button" />
-          <Button text="Zapisz" className="btn primary-button" />
+        <div className="registration_buttons">
+          <Button text="Anuluj" className="btn secondary_button" />
+          <Button text="Zapisz" className="btn primary_button" />
         </div>
       </div>
       <Footer />
