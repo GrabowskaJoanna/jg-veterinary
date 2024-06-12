@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout, setName } from "../pages/store/session-slice";
 
 const NavBar = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const name = localStorage.getItem("name");
+
   const handleLogOut = () => {
+    dispatch(logout());
+    localStorage.removeItem("name");
     localStorage.removeItem("token");
     navigate("/");
   };
@@ -11,8 +18,8 @@ const NavBar = () => {
   return (
     <div className="header">
       <div className="header_nav">
-        <ul className="header_nav-links">
-          <li className="nav_links-item">
+        <ul className="header_nav_links">
+          <li className="nav_links_item">
             <NavLink
               to="/visitList"
               className={({ isActive }) => (isActive ? "link active" : "link")}
@@ -20,7 +27,7 @@ const NavBar = () => {
               Terminarz
             </NavLink>
           </li>
-          <li className="nav_links-item">
+          <li className="nav_links_item">
             <NavLink
               to="/registration"
               className={({ isActive }) => (isActive ? "link active" : "link")}
@@ -31,9 +38,9 @@ const NavBar = () => {
         </ul>
       </div>
       <div className="header_user">
-        <h1 className="header_user-name">Name</h1>
-        <button className="header_user-btn btn">
-          <i className="icon_logout" />
+        <h1 className="header_user_name">{name}</h1>
+        <button className="header_user_btn btn">
+          <i className="icon-logout" />
           <p onClick={handleLogOut}>Wyloguj</p>
         </button>
       </div>

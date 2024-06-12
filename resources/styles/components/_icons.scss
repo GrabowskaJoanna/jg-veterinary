@@ -25,49 +25,49 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon_spinner {
+.icon-spinner {
   &:before {
     content: $icon-spinner;
   }
 }
 
-.icon_logo {
+.icon-logo {
   &:before {
     content: $icon-logo;
   }
 }
 
-.icon_warning {
+.icon-warning {
   &:before {
     content: $icon-warning;
   }
 }
 
-.icon_close {
+.icon-close {
   &:before {
     content: $icon-close;
   }
 }
 
-.icon_success {
+.icon-success {
   &:before {
     content: $icon-success;
   }
 }
 
-.icon_logout {
+.icon-logout {
   &:before {
     content: $icon-logout;
   }
 }
 
-.icon_arrow-right {
+.icon-arrow-right {
   &:before {
     content: $icon-arrow-right;
   }
 }
 
-.icon_arrow-left {
+.icon-arrow-left {
   &:before {
     content: $icon-arrow-left;
   }

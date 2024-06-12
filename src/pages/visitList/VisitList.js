@@ -1,34 +1,68 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import NavBar from "../../abstract/NavBar";
 import Footer from "../../abstract/Footer";
 import VisitListHeader from "./components/VisitListHeader";
 import Pagination from "./components/Pagination";
 import VisitListBody from "./components/VisitListBody";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { setItems } from "../store/list-slice";
 
-const VisitList = () => {
+const VisitList = ({ setIsVisible }) => {
   const items = useSelector((state) => state.list.items);
-  const token = useSelector((state) => state.session.token);
-  const form = useSelector((state) => state.form);
-  form.telephone_number;
+  const token = localStorage.getItem("token");
+  const currentPage = useSelector((state) => state.list.currentPage);
+  const limit = useSelector((state) => state.list.limit);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  console.log("hey crazy developer this is your token: ", token);
+  const fetchData = async () => {
+    try {
+      const response = await fetch(
+        `http://localhost:7080/api/visits?pageNumber=${currentPage}&pageSize=${limit}`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: "Basic " + token,
+          },
+        },
+      );
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      dispatch(setItems(data.items));
+    } catch (error) {
+      console.error("Wystąpił problem z operacją pobierania:", error);
+    }
+  };
 
-  return (
-    <>
-      <NavBar />
-      <div className="visit_container">
-        <h1 className="visit_header">Terminarz</h1>
-        <Pagination />
-      </div>
-      <table className="visit_table">
-        <VisitListHeader />
-        <VisitListBody items={items} />
-      </table>
-      <Footer />
-    </>
-  );
+  useEffect(() => {
+    if (!token) {
+      navigate("/");
+    } else {
+      fetchData();
+    }
+  }, [token, currentPage, limit, navigate]);
+
+  if (token) {
+    return (
+      <>
+        <NavBar />
+        <div className="visit_container">
+          <h1 className="visit_header">Terminarz</h1>
+          <Pagination />
+        </div>
+        <table className="visit_table">
+          <VisitListHeader />
+          <VisitListBody items={items} setIsVisible={setIsVisible} />
+        </table>
+        <Footer />
+      </>
+    );
+  } else {
+    return null;
+  }
 };
 
 export default VisitList;

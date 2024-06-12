@@ -1,34 +1,39 @@
 import React from "react";
 
-const VisitListBody = ({ items }) => {
+const VisitListBody = ({ items, setIsVisible }) => {
   return (
-    <tbody className="visit_table_body">
-      {items.map(
-        ({
-          id,
-          chip,
-          visit_purpose,
-          visit_date,
-          species,
-          visit_status,
-          owner_name,
-          owner_surname,
-        }) => (
-          <tr key={id}>
-            <td>{chip}</td>
-            <td>{visit_purpose}</td>
-            <td>{visit_date}</td>
-            <td>{species}</td>
-            <td>{visit_status}</td>
-            <td>{owner_name}</td>
-            <td>{owner_surname}</td>
-            <td>
-              <i className="icon_close"></i>
-            </td>
-          </tr>
-        ),
-      )}
-    </tbody>
+    <>
+      <tbody className="visit_table_body">
+        {items.map(
+          ({
+            id,
+            chipNumber,
+            visitPurpose,
+            visitDate,
+            species,
+            status,
+            name,
+            surname,
+          }) => (
+            <tr key={id}>
+              <td>{chipNumber}</td>
+              <td>{visitPurpose}</td>
+              <td>{new Date(visitDate).toLocaleDateString()}</td>
+              <td>{species}</td>
+              <td>{status.toLowerCase()}</td>
+              <td>{name}</td>
+              <td>{surname}</td>
+              <td>
+                <i
+                  onClick={() => setIsVisible(true)}
+                  className="icon-close"
+                ></i>
+              </td>
+            </tr>
+          ),
+        )}
+      </tbody>
+    </>
   );
 };
 
