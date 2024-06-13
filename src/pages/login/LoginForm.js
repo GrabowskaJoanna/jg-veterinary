@@ -3,7 +3,7 @@ import TextField from "../../abstract/inputs/TextField";
 import Button from "../../abstract/buttons/Button";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { login, setName } from "../store/session-slice";
+import { login, setName } from "../store/sessionSlice";
 
 const LoginForm = () => {
   const [username, setUsername] = useState("");
@@ -37,8 +37,6 @@ const LoginForm = () => {
           dispatch(login(data.token));
           localStorage.setItem("token", data.token);
           localStorage.setItem("name", data.name);
-          console.log("token:", data.token);
-          console.log("name:", data.name);
           navigate("/visitList");
         } else {
           console.error("Invalid token received");

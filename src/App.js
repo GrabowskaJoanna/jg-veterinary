@@ -1,30 +1,34 @@
-import React, { useState } from "react";
+import React from "react";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import LoginForm from "./pages/login/LoginForm";
 import VisitList from "./pages/visitList/VisitList";
 import Registration from "./pages/newRegistrationForm/Registration";
 import NotFound from "./pages/NotFound/NotFound";
-import { Provider } from "react-redux";
-import store from "./pages/store/store";
+import { useDispatch, useSelector } from "react-redux";
 import Modal from "./abstract/modal";
+import { hideModal } from "./pages/store/modalSlice";
 
 const App = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const isVisible = useSelector((state) => state.modal.isVisible);
+  const row = useSelector((state) => state.modal.row);
+  const dispatch = useDispatch();
+
   return (
-    <Provider store={store}>
+    <>
       <HashRouter>
         <Routes>
           <Route path="/" element={<LoginForm />} />
           <Route path="*" element={<NotFound />} />
-          <Route
-            path="/visitList"
-            element={<VisitList setIsVisible={setIsVisible} />}
-          />
+          <Route path="/visitList" element={<VisitList />} />
           <Route path="/registration" element={<Registration />} />
         </Routes>
       </HashRouter>
-      <Modal show={isVisible} setIsVisible={setIsVisible} />
-    </Provider>
+      <Modal
+        show={isVisible}
+        setIsVisible={() => dispatch(hideModal())}
+        row={row}
+      />
+    </>
   );
 };
 

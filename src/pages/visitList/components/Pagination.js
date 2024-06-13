@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setPage } from "../../store/list-slice";
+import { setPage } from "../../store/listSlice";
 
 const Pagination = () => {
   const dispatch = useDispatch();

@@ -14,15 +14,12 @@ const listSlice = createSlice({
     setPage(state, action) {
       state.currentPage = action.payload;
     },
-    setTotalItems(state, action) {
-      state.totalItems = action.payload;
-    },
     setItems(state, action) {
       state.items = action.payload;
     },
   },
 });
 
-export const { setPage, setTotalItems, setItems } = listSlice.actions;
+export const { setPage, setItems, deleteItem } = listSlice.actions;
 
 export default listSlice.reducer;

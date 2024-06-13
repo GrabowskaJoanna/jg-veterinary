@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { login, logout, setName } from "../pages/store/session-slice";
+import { useDispatch } from "react-redux";
+import { login, logout, setName } from "../pages/store/sessionSlice";
 
 const NavBar = () => {
   const navigate = useNavigate();

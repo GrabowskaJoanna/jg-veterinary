@@ -6,42 +6,44 @@ import VisitListHeader from "./components/VisitListHeader";
 import Pagination from "./components/Pagination";
 import VisitListBody from "./components/VisitListBody";
 import { useDispatch, useSelector } from "react-redux";
-import { setItems } from "../store/list-slice";
+import { setItems } from "../store/listSlice";
+import VisitActions from "../visitList/visitActions";
+import visitActions from "../visitList/visitActions";
 
-const VisitList = ({ setIsVisible }) => {
+const VisitList = () => {
   const items = useSelector((state) => state.list.items);
   const token = localStorage.getItem("token");
   const currentPage = useSelector((state) => state.list.currentPage);
   const limit = useSelector((state) => state.list.limit);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const fetchData = async () => {
-    try {
-      const response = await fetch(
-        `http://localhost:7080/api/visits?pageNumber=${currentPage}&pageSize=${limit}`,
-        {
-          method: "GET",
-          headers: {
-            Authorization: "Basic " + token,
-          },
-        },
-      );
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
-      }
-      const data = await response.json();
-      dispatch(setItems(data.items));
-    } catch (error) {
-      console.error("Wystąpił problem z operacją pobierania:", error);
-    }
-  };
+  // const fetchVisits = async () => {
+  //   const token = localStorage.getItem("token");
+  //   try {
+  //     const response = await fetch(
+  //       `http://localhost:7080/api/visits?pageNumber=${currentPage}&pageSize=${limit}`,
+  //       {
+  //         method: "GET",
+  //         headers: {
+  //           Authorization: "Basic " + token,
+  //         },
+  //       },
+  //     );
+  //     if (!response.ok) {
+  //       throw new Error("Network response was not ok");
+  //     }
+  //     const data = await response.json();
+  //     dispatch(setItems(data.items));
+  //   } catch (error) {
+  //     console.error("Wystąpił problem z operacją pobierania:", error);
+  //   }
+  // };
 
   useEffect(() => {
     if (!token) {
       navigate("/");
     } else {
-      fetchData();
+      dispatch(visitActions.fetchVisits(currentPage, limit));
     }
   }, [token, currentPage, limit, navigate]);
 
@@ -55,7 +57,7 @@ const VisitList = ({ setIsVisible }) => {
         </div>
         <table className="visit_table">
           <VisitListHeader />
-          <VisitListBody items={items} setIsVisible={setIsVisible} />
+          <VisitListBody items={items} />
         </table>
         <Footer />
       </>
