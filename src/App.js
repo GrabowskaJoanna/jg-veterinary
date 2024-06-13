@@ -11,7 +11,6 @@ import { hideModal } from "./pages/store/modalSlice";
 const App = () => {
   const isVisible = useSelector((state) => state.modal.isVisible);
   const row = useSelector((state) => state.modal.row);
-  const deleteItem = useSelector((state) => state.list.items);
   const dispatch = useDispatch();
 
   return (
