@@ -1,20 +1,13 @@
-// import reducer from "./reducer";
-// import { configureStore } from "@reduxjs/toolkit";
-//
-// const store = configureStore({
-//   reducer,
-// });
-//
-// export default store;
-
 import { configureStore } from "@reduxjs/toolkit";
-import listReducer from "./list-slice";
-import sessionReducer from "./session-slice";
+import listReducer from "./listSlice";
+import sessionReducer from "./sessionSlice";
+import modalReducer from "./modalSlice";
 
 const store = configureStore({
   reducer: {
     list: listReducer,
     session: sessionReducer,
+    modal: modalReducer,
   },
 });
 
