@@ -1,12 +1,11 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { hideModal, showModal } from "../../store/modalSlice";
-import { deleteItem } from "../../store/listSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { showModal } from "../../store/modalSlice";
 
 const VisitListBody = ({ items }) => {
   const dispatch = useDispatch();
-  const token = localStorage.getItem("token");
-  const handleIconClick = (item) => {
+
+  const handleShowModal = (item) => {
     dispatch(showModal(item));
   };
 
@@ -22,7 +21,7 @@ const VisitListBody = ({ items }) => {
           <td>{item.name}</td>
           <td>{item.surname}</td>
           <td>
-            <i onClick={() => handleIconClick(item)} className="icon-close"></i>
+            <i onClick={() => handleShowModal(item)} className="icon-close"></i>
           </td>
         </tr>
       ))}
