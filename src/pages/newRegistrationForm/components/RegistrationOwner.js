@@ -6,8 +6,8 @@ import { updateOwnerFormField } from "../../store/formSlice";
 const RegistrationOwner = () => {
   const visitForm = useSelector((state) => state.form.owner);
   const dispatch = useDispatch();
-  const handleInputChange = (field, value) => {
-    dispatch(updateOwnerFormField({ field, value }));
+  const handleInputChange = (name, value) => {
+    dispatch(updateOwnerFormField({ name, value }));
   };
 
   return (

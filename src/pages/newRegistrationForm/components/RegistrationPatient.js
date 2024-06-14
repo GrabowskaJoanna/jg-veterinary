@@ -6,12 +6,9 @@ import { updatePatientFormField } from "../../store/formSlice";
 const RegistrationPatient = () => {
   const dispatch = useDispatch();
   const visitFormPatient = useSelector((state) => state.form.patient);
-  // const handleInputUpdate = (field, value) => {
-  //   dispatch(updatePatientFormField({ field, value }));
-  // };
 
-  const handleInputUpdate = (field, value) => {
-    if (field === "age") {
+  const handleInputUpdate = (name, value) => {
+    if (name === "age") {
       const parsedValue = parseFloat(value);
       if (!isNaN(parsedValue)) {
         value = parsedValue;
@@ -19,7 +16,7 @@ const RegistrationPatient = () => {
         value = 0;
       }
     }
-    dispatch(updatePatientFormField({ field, value }));
+    dispatch(updatePatientFormField({ name, value }));
   };
 
   return (

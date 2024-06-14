@@ -13,17 +13,22 @@ import {
 const RegistrationAppointment = () => {
   const visitFormVisit = useSelector((state) => state.form.visit);
   const dispatch = useDispatch();
-  const handleInputChange = (field, value) => {
-    dispatch(updateVisitFormField({ field, value }));
+  const handleInputChange = (name, value) => {
+    dispatch(updateVisitFormField({ name, value }));
   };
 
-  const handleVisitStatusChange = (selectedStatus) => {
-    dispatch(setVisitStatus(selectedStatus));
+  const handleVisitStatusChange = (e) => {
+    dispatch(setVisitStatus(e.target.value));
   };
 
-  const handleVisitDateChange = (selectedDate) => {
-    dispatch(setVisitDate(selectedDate));
+  const handleVisitDateChange = (date) => {
+    const dateString = date.toISOString();
+    dispatch(setVisitDate(dateString));
   };
+
+  const selectedDate = visitFormVisit.visitDate
+    ? new Date(visitFormVisit.visitDate)
+    : null; // Deserializacja daty
   return (
     <>
       <h2 className="registration_section_header">Wizyta:</h2>
@@ -39,7 +44,7 @@ const RegistrationAppointment = () => {
           <DatePicker
             text="Data wizyty"
             name="visitDate"
-            value={visitFormVisit.visitDate}
+            selectedDate={visitFormVisit.visitDate}
             onChange={handleVisitDateChange}
           />
         </section>
@@ -57,7 +62,7 @@ const RegistrationAppointment = () => {
             text="Status"
             options={["Standard", "Pilne"]}
             value={visitFormVisit.status}
-            onChange={(e) => handleVisitStatusChange(e.target.value)}
+            onChange={handleVisitStatusChange}
           />
         </section>
       </div>

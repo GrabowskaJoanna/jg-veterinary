@@ -33,7 +33,6 @@ const LoginForm = () => {
         return response.json();
       })
       .then((data) => {
-        console.log("Data:", data);
         if (data.token && data.token.trim() !== "") {
           dispatch(login(data.token));
           sessionStorage.setItem("token", data.token);

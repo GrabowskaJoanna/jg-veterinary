@@ -29,16 +29,16 @@ const formSlice = createSlice({
   initialState: initialFormState,
   reducers: {
     updateVisitFormField(state, action) {
-      const { field, value } = action.payload;
-      state.visit[field] = value;
+      const { name, value } = action.payload;
+      state.visit[name] = value;
     },
     updatePatientFormField(state, action) {
-      const { field, value } = action.payload;
-      state.patient[field] = value;
+      const { name, value } = action.payload;
+      state.patient[name] = value;
     },
     updateOwnerFormField(state, action) {
-      const { field, value } = action.payload;
-      state.owner[field] = value;
+      const { name, value } = action.payload;
+      state.owner[name] = value;
     },
     setVisitStatus(state, action) {
       state.visit.status = action.payload;

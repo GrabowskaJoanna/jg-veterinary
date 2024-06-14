@@ -7,6 +7,7 @@ import RegistrationOwner from "./components/RegistrationOwner";
 import Button from "../../abstract/buttons/Button";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import visitActions from "../visitList/visitActions";
 
 const Registration = () => {
   const token = sessionStorage.getItem("token");
@@ -15,8 +16,10 @@ const Registration = () => {
   const visit = useSelector((state) => state.form.visit);
   const patient = useSelector((state) => state.form.patient);
   const owner = useSelector((state) => state.form.owner);
+  const dispatch = useDispatch();
   const handleSaveForm = () => {
     const flatFormState = {
+      success: true,
       id: form.id,
       visitPurpose: visit.visitPurpose,
       visitDate: visit.visitDate,
@@ -27,12 +30,32 @@ const Registration = () => {
       species: patient.species,
       age: patient.age,
       breed: patient.breed,
-      ownerName: owner.name,
+      race: patient.breed,
+      name: owner.name,
       phoneNumber: owner.phoneNumber,
-      ownerSurname: owner.surname,
+      surname: owner.surname,
       emailAddress: owner.emailAddress,
       pesel: owner.pesel,
     };
+    fetch(`http://localhost:7080/api/visits`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Basic " + token,
+      },
+      body: JSON.stringify(flatFormState),
+    })
+      .then((response) => {
+        if (response.ok) {
+          dispatch(visitActions.fetchVisits());
+          navigate("/visitList");
+        } else {
+          console.error("Wizyta nie została zapisana");
+        }
+      })
+      .catch((error) => {
+        console.error("Błąd sieci", error);
+      });
     console.log("Sending form data to server:", flatFormState);
   };
 

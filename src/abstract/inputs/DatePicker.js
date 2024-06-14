@@ -2,13 +2,7 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
-const DateInput = ({ text, name }) => {
-  const [selectedDate, setSelectedDate] = useState(null);
-
-  const handleDateChange = (date) => {
-    setSelectedDate(date);
-  };
-
+const DateInput = ({ text, name, onChange, selectedDate }) => {
   return (
     <div>
       <label>
@@ -16,7 +10,7 @@ const DateInput = ({ text, name }) => {
         <DatePicker
           name={name}
           selected={selectedDate}
-          onChange={handleDateChange}
+          onChange={onChange}
           dateFormat="dd/MM/yyyy"
         />
       </label>
