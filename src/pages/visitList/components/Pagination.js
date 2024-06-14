@@ -4,11 +4,15 @@ import { setPage } from "../../store/listSlice";
 
 const Pagination = () => {
   const dispatch = useDispatch();
-  const { currentPage, limit, totalItems } = useSelector((state) => state.list);
+  const currentPage = useSelector((state) => state.list.currentPage);
+  const limit = useSelector((state) => state.list.limit);
+  const totalItems = useSelector((state) => state.list.totalItems);
   const totalPages = Math.ceil(totalItems / limit);
 
   const handlePageChange = (page) => {
-    dispatch(setPage(page));
+    if (page > 0 && page <= totalPages) {
+      dispatch(setPage(page));
+    }
   };
 
   return (

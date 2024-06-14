@@ -1,15 +1,12 @@
 import React from "react";
-import { deleteRow, hideModal } from "../pages/store/modalSlice";
+import { hideModal } from "../pages/store/modalSlice";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteItem } from "../pages/store/listSlice";
 import visitActions from "../pages/visitList/visitActions";
 
 const Modal = ({ show }) => {
   const dispatch = useDispatch();
   const row = useSelector((state) => state.modal.row);
-  const token = localStorage.getItem("token");
-  const currentPage = useSelector((state) => state.list.currentPage);
-  const limit = useSelector((state) => state.list.limit);
+  const token = sessionStorage.getItem("token");
 
   const handleDelete = (itemId) => {
     const data = {
@@ -25,7 +22,7 @@ const Modal = ({ show }) => {
     })
       .then((response) => {
         if (response.ok) {
-          dispatch(visitActions.fetchVisits(currentPage, limit));
+          dispatch(visitActions.fetchVisits());
           dispatch(hideModal());
         } else {
           console.error("Błąd usuwania wizyty");

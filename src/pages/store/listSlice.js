@@ -17,9 +17,12 @@ const listSlice = createSlice({
     setItems(state, action) {
       state.items = action.payload;
     },
+    setTotalItems(state, action) {
+      state.totalItems = action.payload;
+    },
   },
 });
 
-export const { setPage, setItems, deleteItem } = listSlice.actions;
+export const { setPage, setItems, setTotalItems } = listSlice.actions;
 
 export default listSlice.reducer;

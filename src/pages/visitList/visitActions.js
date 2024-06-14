@@ -1,11 +1,12 @@
 import { setItems } from "../store/listSlice";
 
 export class VisitActions {
-  fetchVisits = (currentPage, limit) => async (dispatch) => {
-    console.log(1);
-    const token = localStorage.getItem("token");
+  fetchVisits = () => async (dispatch, getState) => {
+    const state = getState();
+    const currentPage = state.list.currentPage;
+    const limit = state.list.limit;
+    const token = sessionStorage.getItem("token");
     try {
-      console.log(2);
       const response = await fetch(
         `http://localhost:7080/api/visits?pageNumber=${currentPage}&pageSize=${limit}`,
         {

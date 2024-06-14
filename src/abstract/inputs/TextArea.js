@@ -1,11 +1,11 @@
 import React from "react";
 
-const TextArea = ({ text, name }) => {
+const TextArea = ({ text, name, value, onChange }) => {
   return (
     <>
       <label>
         {text}
-        <textarea name={name}></textarea>
+        <textarea name={name} value={value} onChange={onChange} />
       </label>
     </>
   );
