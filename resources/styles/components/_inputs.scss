@@ -19,6 +19,10 @@ input {
   padding-left: 10px;
   color: black;
 }
+.error {
+  border: 1px solid red;
+  background-color: rgba(234, 116, 116, 0.2);
+}
 
 textarea {
   background-color: $inputs-color;

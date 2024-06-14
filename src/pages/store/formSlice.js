@@ -46,6 +46,9 @@ const formSlice = createSlice({
     setVisitDate(state, action) {
       state.visit.visitDate = action.payload;
     },
+    clearForm(state) {
+      Object.assign(state, initialFormState);
+    },
   },
 });
 
@@ -55,5 +58,6 @@ export const {
   updateOwnerFormField,
   setVisitStatus,
   setVisitDate,
+  clearForm,
 } = formSlice.actions;
 export default formSlice.reducer;

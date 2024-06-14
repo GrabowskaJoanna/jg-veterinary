@@ -8,6 +8,7 @@ import Button from "../../abstract/buttons/Button";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import visitActions from "../visitList/visitActions";
+import { clearForm } from "../store/formSlice";
 
 const Registration = () => {
   const token = sessionStorage.getItem("token");
@@ -17,7 +18,9 @@ const Registration = () => {
   const patient = useSelector((state) => state.form.patient);
   const owner = useSelector((state) => state.form.owner);
   const dispatch = useDispatch();
-  const handleSaveForm = () => {
+  const handleSaveForm = (e) => {
+    e.preventDefault();
+
     const flatFormState = {
       success: true,
       id: form.id,
@@ -49,6 +52,7 @@ const Registration = () => {
         if (response.ok) {
           dispatch(visitActions.fetchVisits());
           navigate("/visitList");
+          dispatch(clearForm());
         } else {
           console.error("Wizyta nie została zapisana");
         }
@@ -70,19 +74,20 @@ const Registration = () => {
       <>
         <NavBar />
         <h1 className="registration_header">Rejestracja</h1>
-        <div className="registration_container">
+        <form className="registration_container" onSubmit={handleSaveForm}>
           <RegistrationAppointment />
           <RegistrationPatient />
           <RegistrationOwner />
           <div className="registration_buttons">
             <Button text="Anuluj" className="btn secondary_button" />
             <Button
+              type="submit"
               text="Zapisz"
               className="btn primary_button"
-              onClick={handleSaveForm}
+              //onClick={handleSaveForm}
             />
           </div>
-        </div>
+        </form>
         <Footer />
       </>
     );
