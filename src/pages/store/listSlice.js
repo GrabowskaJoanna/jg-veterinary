@@ -20,6 +20,6 @@ const listSlice = createSlice({
   },
 });
 
-export const { setPage, setItems, deleteItem } = listSlice.actions;
+export const { setPage, setItems } = listSlice.actions;
 
 export default listSlice.reducer;

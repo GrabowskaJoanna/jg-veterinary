@@ -33,10 +33,11 @@ const LoginForm = () => {
         return response.json();
       })
       .then((data) => {
+        console.log("Data:", data);
         if (data.token && data.token.trim() !== "") {
           dispatch(login(data.token));
-          localStorage.setItem("token", data.token);
-          localStorage.setItem("name", data.name);
+          sessionStorage.setItem("token", data.token);
+          sessionStorage.setItem("name", data.name);
           navigate("/visitList");
         } else {
           console.error("Invalid token received");

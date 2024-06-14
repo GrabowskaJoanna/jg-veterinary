@@ -6,12 +6,12 @@ import { login, logout, setName } from "../pages/store/sessionSlice";
 const NavBar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const name = localStorage.getItem("name");
+  const name = sessionStorage.getItem("name");
 
   const handleLogOut = () => {
     dispatch(logout());
-    localStorage.removeItem("name");
-    localStorage.removeItem("token");
+    sessionStorage.removeItem("name");
+    sessionStorage.removeItem("token");
     navigate("/");
   };
 

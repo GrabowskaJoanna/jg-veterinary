@@ -8,7 +8,7 @@ import Button from "../../abstract/buttons/Button";
 import { useNavigate } from "react-router-dom";
 
 export const Registration = () => {
-  const token = localStorage.getItem("token");
+  const token = sessionStorage.getItem("token");
   const navigate = useNavigate();
 
   useEffect(() => {
