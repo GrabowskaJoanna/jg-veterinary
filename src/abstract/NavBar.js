@@ -1,15 +1,12 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { login, logout, setName } from "../pages/store/sessionSlice";
 
 const NavBar = () => {
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const name = sessionStorage.getItem("name");
 
   const handleLogOut = () => {
-    dispatch(logout());
     sessionStorage.removeItem("name");
     sessionStorage.removeItem("token");
     navigate("/");
