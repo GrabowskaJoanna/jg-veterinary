@@ -1,6 +1,4 @@
 import { setItems, setPage, setTotalItems } from "../store/listSlice";
-import { current } from "@reduxjs/toolkit";
-import { useSelector } from "react-redux";
 
 export class VisitActions {
   fetchVisits = () => async (dispatch, getState) => {

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import NavBar from "../../abstract/NavBar";
 import Footer from "../../abstract/Footer";
 import RegistrationAppointment from "./components/RegistrationAppointment";
@@ -11,6 +11,7 @@ import visitActions from "../visitList/visitActions";
 import { clearForm } from "../store/formSlice";
 
 const Registration = () => {
+  const [errors, setErrors] = useState([]);
   const token = sessionStorage.getItem("token");
   const navigate = useNavigate();
   const form = useSelector((state) => state.form);
@@ -18,8 +19,104 @@ const Registration = () => {
   const patient = useSelector((state) => state.form.patient);
   const owner = useSelector((state) => state.form.owner);
   const dispatch = useDispatch();
+  console.log(visit);
+
+  const validation = () => {
+    const newErrors = [];
+
+    if (!visit.visitPurpose) {
+      newErrors.push({
+        field: "visitPurpose",
+        message: "Cel wizyty jest wymaganay",
+      });
+    } else if (visit.visitPurpose.length < 3) {
+      newErrors.push({
+        field: "visitPurpose",
+        message: "Cel wizyty jest za krótki",
+      });
+    }
+    if (!visit.visitDescription) {
+      newErrors.push({
+        field: "visitDescription",
+        message: "Wymagany opis wizyty",
+      });
+    } else if (visit.visitDescription.length < 10) {
+      newErrors.push({
+        field: "visitDescription",
+        message: "Opis wizyty jest za krótki",
+      });
+    }
+    if (visit.visitDate === null) {
+      newErrors.push({ field: "visitDate", message: "Wymagana data wizyty" });
+    }
+    if (!patient.chipNumber) {
+      newErrors.push({ field: "chipNumber", message: "Wymagany numer chip" });
+    } else if (patient.chipNumber.length !== 15) {
+      newErrors.push({
+        field: "chipNumber",
+        message: "Podany numer chip jest za krótki",
+      });
+    }
+    if (!patient.species) {
+      newErrors.push({ field: "species", message: "Gatunek jest wymagany" });
+    } else if (patient.species.length < 3) {
+      newErrors.push({
+        field: "species",
+        message: "Podany nazwa gatunku jest za krótka",
+      });
+    }
+    if (!owner.name) {
+      newErrors.push({
+        field: "name",
+        message: "Imię właściciela jest wymagane",
+      });
+    } else if (owner.name.length < 3) {
+      newErrors.push({
+        field: "name",
+        message: "Podane imię właściciela jest za krótkie",
+      });
+    }
+    if (!owner.surname) {
+      newErrors.push({ field: "surname", message: "Nazwisko jest wymagane" });
+    } else if (owner.surname.length < 3) {
+      newErrors.push({
+        field: "surname",
+        message: "Podane nazwisko jest za krótkie",
+      });
+    }
+    if (!owner.phoneNumber) {
+      newErrors.push({
+        field: "phoneNumber",
+        message: "Wymagany numer telefonu",
+      });
+    } else if (owner.phoneNumber.length < 7) {
+      newErrors.push({
+        field: "phoneNumber",
+        message: "Podany numer telefonu jest za krótki",
+      });
+    }
+    if (!owner.emailAddress) {
+      newErrors.push({
+        field: "emailAddress",
+        message: "Wymagany adres email",
+      });
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(owner.emailAddress)) {
+      newErrors.push({
+        field: "emailAddress",
+        message: "Email jest nieprawidłowy",
+      });
+    }
+
+    setErrors(newErrors);
+    return newErrors.length === 0;
+  };
+
   const handleSaveForm = (e) => {
     e.preventDefault();
+
+    if (!validation()) {
+      return;
+    }
 
     const flatFormState = {
       success: true,
@@ -60,7 +157,6 @@ const Registration = () => {
       .catch((error) => {
         console.error("Błąd sieci", error);
       });
-    console.log("Sending form data to server:", flatFormState);
   };
 
   useEffect(() => {
@@ -75,16 +171,24 @@ const Registration = () => {
         <NavBar />
         <h1 className="registration_header">Rejestracja</h1>
         <form className="registration_container" onSubmit={handleSaveForm}>
+          {errors.length > 0 && (
+            <div className="error_field">
+              {errors.map((error, index) => (
+                <p key={index} className="error_message">
+                  {error.message}
+                </p>
+              ))}
+            </div>
+          )}
           <RegistrationAppointment />
           <RegistrationPatient />
-          <RegistrationOwner />
+          <RegistrationOwner errors={errors} />
           <div className="registration_buttons">
             <Button text="Anuluj" className="btn secondary_button" />
             <Button
               type="submit"
               text="Zapisz"
               className="btn primary_button"
-              //onClick={handleSaveForm}
             />
           </div>
         </form>
