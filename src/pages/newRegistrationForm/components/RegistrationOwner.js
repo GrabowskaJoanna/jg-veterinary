@@ -16,14 +16,14 @@ const RegistrationOwner = () => {
       <div className="registration_section">
         <section className="registration_inputs">
           <TextField
-            text="Imię"
+            text="Imię *"
             name="name"
             type="text"
             value={visitForm.name}
             onChange={(e) => handleInputChange("name", e.target.value)}
           />
           <TextField
-            text="Numer telefonu"
+            text="Numer telefonu *"
             name="phoneNumber"
             type="text"
             value={visitForm.phoneNumber}
@@ -32,14 +32,14 @@ const RegistrationOwner = () => {
         </section>
         <section className="registration_inputs">
           <TextField
-            text="Nazwisko"
+            text="Nazwisko *"
             name="surname"
             type="text"
             value={visitForm.surname}
             onChange={(e) => handleInputChange("surname", e.target.value)}
           />
           <TextField
-            text="Email"
+            text="Email *"
             name="emailAddress"
             type="email"
             value={visitForm.emailAddress}

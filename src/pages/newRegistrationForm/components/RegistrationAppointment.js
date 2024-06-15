@@ -26,23 +26,20 @@ const RegistrationAppointment = () => {
     dispatch(setVisitDate(dateString));
   };
 
-  const selectedDate = visitFormVisit.visitDate
-    ? new Date(visitFormVisit.visitDate)
-    : null; // Deserializacja daty
   return (
     <>
       <h2 className="registration_section_header">Wizyta:</h2>
       <div className="registration_section">
         <section className="registration_inputs">
           <TextField
-            text="Cel wizyty"
+            text="Cel wizyty *"
             name="visitPurpose"
             type="text"
             value={visitFormVisit.visitPurpose}
             onChange={(e) => handleInputChange("visitPurpose", e.target.value)}
           />
           <DatePicker
-            text="Data wizyty"
+            text="Data wizyty *"
             name="visitDate"
             selectedDate={visitFormVisit.visitDate}
             onChange={handleVisitDateChange}
@@ -50,7 +47,7 @@ const RegistrationAppointment = () => {
         </section>
         <TextArea
           name="visitDescription"
-          text="Opis"
+          text="Opis *"
           value={visitFormVisit.visitDescription}
           onChange={(e) =>
             handleInputChange("visitDescription", e.target.value)
@@ -59,7 +56,7 @@ const RegistrationAppointment = () => {
         <section className="registration_selects single_input">
           <SelectInput
             name="status"
-            text="Status"
+            text="Status "
             options={["Standard", "Pilne"]}
             value={visitFormVisit.status}
             onChange={handleVisitStatusChange}

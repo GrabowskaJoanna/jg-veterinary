@@ -25,14 +25,14 @@ const RegistrationPatient = () => {
       <div className="registration_section">
         <section className="registration_inputs">
           <TextField
-            text="Nr chipa"
+            text="Nr chipa *"
             name="chipNumber"
             type="text"
             value={visitFormPatient.chipNumber}
             onChange={(e) => handleInputUpdate("chipNumber", e.target.value)}
           />
           <TextField
-            text="Imię"
+            text="Imię *"
             name="petName"
             type="text"
             value={visitFormPatient.petName}
@@ -41,7 +41,7 @@ const RegistrationPatient = () => {
         </section>
         <section className="registration_inputs">
           <TextField
-            text="Gatunek"
+            text="Gatunek *"
             name="species"
             type="text"
             value={visitFormPatient.species}
