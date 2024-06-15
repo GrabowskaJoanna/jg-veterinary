@@ -1,4 +1,6 @@
-import { setItems } from "../store/listSlice";
+import { setItems, setPage, setTotalItems } from "../store/listSlice";
+import { current } from "@reduxjs/toolkit";
+import { useSelector } from "react-redux";
 
 export class VisitActions {
   fetchVisits = () => async (dispatch, getState) => {
@@ -21,10 +23,10 @@ export class VisitActions {
       }
       const data = await response.json();
       dispatch(setItems(data.items));
+      dispatch(setTotalItems(data.total));
     } catch (error) {
       console.error("Wystąpił problem z operacją pobierania:", error);
     }
   };
 }
-
 export default new VisitActions();

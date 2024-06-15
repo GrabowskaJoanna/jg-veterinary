@@ -111,7 +111,7 @@ const LoginForm = () => {
   const handleLogin = (e) => {
     e.preventDefault();
     if (!username || !password) {
-      setError("Proszę wprowadzić login i hasło.");
+      setError("Należy wprowadzić login i hasło.");
       return;
     }
 
@@ -163,7 +163,9 @@ const LoginForm = () => {
       <form className="form_login" onSubmit={handleLogin}>
         <div className="form_login_container">
           <h1 className="form_login_header">Logowanie</h1>
-          {error && <p style={{ color: "red" }}>{error}</p>}
+          {error && (
+            <p style={{ color: "red", marginBottom: "5px" }}>{error}</p>
+          )}
           <TextField
             type="text"
             name="name"

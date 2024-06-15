@@ -1,6 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setPage } from "../../store/listSlice";
+import visitActions from "../visitActions";
 
 const Pagination = () => {
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ const Pagination = () => {
   const handlePageChange = (page) => {
     if (page > 0 && page <= totalPages) {
       dispatch(setPage(page));
+      dispatch(visitActions.fetchVisits());
     }
   };
 
