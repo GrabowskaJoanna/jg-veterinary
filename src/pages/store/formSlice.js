@@ -49,6 +49,9 @@ const formSlice = createSlice({
     clearForm(state) {
       Object.assign(state, initialFormState);
     },
+    setRegistrationForm(state, action) {
+      return action.payload;
+    },
   },
 });
 
@@ -59,5 +62,6 @@ export const {
   setVisitStatus,
   setVisitDate,
   clearForm,
+  setRegistrationForm,
 } = formSlice.actions;
 export default formSlice.reducer;
