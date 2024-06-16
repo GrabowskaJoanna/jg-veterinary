@@ -8,7 +8,7 @@ const DateInput = ({
   onChange,
   selectedDate,
   className,
-  errorMessage,
+  hasError,
 }) => {
   return (
     <div>
@@ -21,7 +21,7 @@ const DateInput = ({
           dateFormat="dd/MM/yyyy"
           className={className}
         />
-        {errorMessage && <p className="error_message">{errorMessage}</p>}
+        {hasError && <p className="error_message">To pole jest wymagane!</p>}
       </label>
     </div>
   );

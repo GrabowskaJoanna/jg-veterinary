@@ -3,7 +3,7 @@ import TextField from "../../../abstract/inputs/TextField";
 import { useDispatch, useSelector } from "react-redux";
 import { updateOwnerFormField } from "../../store/formSlice";
 
-const RegistrationOwner = ({ hasError, getErrorMessage }) => {
+const RegistrationOwner = ({ hasError }) => {
   const visitForm = useSelector((state) => state.form.owner);
   const dispatch = useDispatch();
   const handleInputChange = (name, value) => {
@@ -22,7 +22,7 @@ const RegistrationOwner = ({ hasError, getErrorMessage }) => {
             value={visitForm.name}
             onChange={(e) => handleInputChange("name", e.target.value)}
             className={hasError("name") ? "error_field" : ""}
-            errorMessage={getErrorMessage("name")}
+            hasError={hasError("name")}
           />
           <TextField
             text="Numer telefonu *"
@@ -31,7 +31,7 @@ const RegistrationOwner = ({ hasError, getErrorMessage }) => {
             value={visitForm.phoneNumber}
             onChange={(e) => handleInputChange("phoneNumber", e.target.value)}
             className={hasError("phoneNumber") ? "error_field" : ""}
-            errorMessage={getErrorMessage("phoneNumber")}
+            hasError={hasError("phoneNumber")}
           />
         </section>
         <section className="registration_inputs">
@@ -42,7 +42,7 @@ const RegistrationOwner = ({ hasError, getErrorMessage }) => {
             value={visitForm.surname}
             onChange={(e) => handleInputChange("surname", e.target.value)}
             className={hasError("surname") ? "error_field" : ""}
-            errorMessage={getErrorMessage("surname")}
+            hasError={hasError("surname")}
           />
           <TextField
             text="Email *"
@@ -51,7 +51,7 @@ const RegistrationOwner = ({ hasError, getErrorMessage }) => {
             value={visitForm.emailAddress}
             onChange={(e) => handleInputChange("emailAddress", e.target.value)}
             className={hasError("emailAddress") ? "error_field" : ""}
-            errorMessage={getErrorMessage("emailAddress")}
+            hasError={hasError("emailAddress")}
           />
         </section>
         <div className="single_input">
@@ -61,7 +61,6 @@ const RegistrationOwner = ({ hasError, getErrorMessage }) => {
             type="text"
             value={visitForm.pesel}
             onChange={(e) => handleInputChange("pesel", e.target.value)}
-            className={hasError("pesel") ? "error_field" : ""}
           />
         </div>
       </div>

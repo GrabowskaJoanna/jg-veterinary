@@ -1,13 +1,6 @@
 import React from "react";
 
-const SelectInput = ({
-  text,
-  options,
-  name,
-  value,
-  onChange,
-  errorMessage,
-}) => {
+const SelectInput = ({ text, options, name, value, onChange, hasError }) => {
   return (
     <>
       <label>
@@ -19,7 +12,7 @@ const SelectInput = ({
             </option>
           ))}
         </select>
-        {errorMessage && <p className="error_message">{errorMessage}</p>}
+        {hasError && <p className="error_message">To pole jest wymagane!</p>}
       </label>
     </>
   );

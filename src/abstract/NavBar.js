@@ -26,7 +26,7 @@ const NavBar = () => {
           </li>
           <li className="nav_links_item">
             <NavLink
-              to="/registration"
+              to="/registration/0"
               className={({ isActive }) => (isActive ? "link active" : "link")}
             >
               Rejestracja

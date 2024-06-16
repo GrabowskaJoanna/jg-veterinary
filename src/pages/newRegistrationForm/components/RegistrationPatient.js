@@ -3,7 +3,7 @@ import TextField from "../../../abstract/inputs/TextField";
 import { useDispatch, useSelector } from "react-redux";
 import { updatePatientFormField } from "../../store/formSlice";
 
-const RegistrationPatient = ({ hasError, getErrorMessage }) => {
+const RegistrationPatient = ({ hasError }) => {
   const dispatch = useDispatch();
   const visitFormPatient = useSelector((state) => state.form.patient);
 
@@ -31,7 +31,7 @@ const RegistrationPatient = ({ hasError, getErrorMessage }) => {
             value={visitFormPatient.chipNumber}
             onChange={(e) => handleInputUpdate("chipNumber", e.target.value)}
             className={hasError("chipNumber") ? "error_field" : ""}
-            errorMessage={getErrorMessage("chipNumber")}
+            hasError={hasError("chipNumber")}
           />
           <TextField
             text="Imię *"
@@ -40,7 +40,7 @@ const RegistrationPatient = ({ hasError, getErrorMessage }) => {
             value={visitFormPatient.petName}
             onChange={(e) => handleInputUpdate("petName", e.target.value)}
             className={hasError("petName") ? "error_field" : ""}
-            errorMessage={getErrorMessage("petName")}
+            hasError={hasError("petName")}
           />
         </section>
         <section className="registration_inputs">
@@ -51,7 +51,7 @@ const RegistrationPatient = ({ hasError, getErrorMessage }) => {
             value={visitFormPatient.species}
             onChange={(e) => handleInputUpdate("species", e.target.value)}
             className={hasError("species") ? "error_field" : ""}
-            errorMessage={getErrorMessage("species")}
+            hasError={hasError("species")}
           />
           <TextField
             text="Wiek *"
@@ -60,7 +60,7 @@ const RegistrationPatient = ({ hasError, getErrorMessage }) => {
             value={visitFormPatient.age}
             onChange={(e) => handleInputUpdate("age", e.target.value)}
             className={hasError("age") ? "error_field" : ""}
-            errorMessage={getErrorMessage("age")}
+            hasError={hasError("age")}
           />
         </section>
         <div className="single_input">

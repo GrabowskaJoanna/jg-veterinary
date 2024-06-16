@@ -1,6 +1,6 @@
 import React from "react";
 
-const TextArea = ({ text, name, value, onChange, className, errorMessage }) => {
+const TextArea = ({ text, name, value, onChange, className, hasError }) => {
   return (
     <>
       <label>
@@ -11,7 +11,7 @@ const TextArea = ({ text, name, value, onChange, className, errorMessage }) => {
           onChange={onChange}
           className={className}
         />
-        {errorMessage && <p className="error_message">{errorMessage}</p>}
+        {hasError && <p className="error_message">To pole jest wymagane!</p>}
       </label>
     </>
   );

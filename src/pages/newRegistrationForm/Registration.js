@@ -15,116 +15,38 @@ const Registration = () => {
   const token = sessionStorage.getItem("token");
   const navigate = useNavigate();
   const form = useSelector((state) => state.form);
-  const visit = useSelector((state) => state.form.visit);
-  const patient = useSelector((state) => state.form.patient);
-  const owner = useSelector((state) => state.form.owner);
+  const visit = form.visit;
+  const patient = form.patient;
+  const owner = form.owner;
   const dispatch = useDispatch();
 
-  const validation = () => {
-    const newErrors = [];
+  const validateObject = (object, errorArray, excludedFields) => {
+    Object.keys(object).forEach((key) => {
+      if (!excludedFields.includes(key) && !object[key]) {
+        errorArray.push(key);
+      }
+    });
 
-    if (!visit.visitPurpose) {
-      newErrors.push({
-        field: "visitPurpose",
-        message: "Cel wizyty jest wymaganay",
-      });
-    } else if (visit.visitPurpose.length < 3) {
-      newErrors.push({
-        field: "visitPurpose",
-        message: "Cel wizyty jest za krótki",
-      });
-    }
-    if (!visit.visitDescription) {
-      newErrors.push({
-        field: "visitDescription",
-        message: "Wymagany opis wizyty",
-      });
-    } else if (visit.visitDescription.length < 10) {
-      newErrors.push({
-        field: "visitDescription",
-        message: "Opis wizyty jest za krótki",
-      });
-    }
-    if (!visit.visitDate) {
-      newErrors.push({ field: "visitDate", message: "Wymagana data wizyty" });
-    }
-    if (!patient.chipNumber) {
-      newErrors.push({ field: "chipNumber", message: "Wymagany numer chip" });
-    } else if (patient.chipNumber.length !== 15) {
-      newErrors.push({
-        field: "chipNumber",
-        message: "Podany numer chip jest za krótki",
-      });
-    }
-    if (!patient.species) {
-      newErrors.push({ field: "species", message: "Gatunek jest wymagany" });
-    } else if (patient.species.length < 3) {
-      newErrors.push({
-        field: "species",
-        message: "Podany nazwa gatunku jest za krótka",
-      });
-    }
-    if (!patient.name) {
-      newErrors.push({ field: "petName", message: "Wymagane imię pacjenta" });
-    } else if (patient.name < 3) {
-      newErrors.push({
-        field: "petName",
-        message: "Podane imię pacjenta jest za krótkie",
-      });
-    }
-    if (!patient.age) {
-      newErrors.push({ field: "age", message: "Wymagany wiek pacjenta" });
-    }
-    if (!owner.name) {
-      newErrors.push({
-        field: "name",
-        message: "Imię właściciela jest wymagane",
-      });
-    } else if (owner.name.length < 3) {
-      newErrors.push({
-        field: "name",
-        message: "Podane imię właściciela jest za krótkie",
-      });
-    }
-    if (!owner.surname) {
-      newErrors.push({ field: "surname", message: "Nazwisko jest wymagane" });
-    } else if (owner.surname.length < 3) {
-      newErrors.push({
-        field: "surname",
-        message: "Podane nazwisko jest za krótkie",
-      });
-    }
-    if (!owner.phoneNumber) {
-      newErrors.push({
-        field: "phoneNumber",
-        message: "Wymagany numer telefonu",
-      });
-    } else if (owner.phoneNumber.length < 7) {
-      newErrors.push({
-        field: "phoneNumber",
-        message: "Podany numer telefonu jest za krótki",
-      });
-    }
-    if (!owner.emailAddress) {
-      newErrors.push({
-        field: "emailAddress",
-        message: "Wymagany adres email",
-      });
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(owner.emailAddress)) {
-      newErrors.push({
-        field: "emailAddress",
-        message: "Email jest nieprawidłowy",
-      });
-    }
-    setErrors(newErrors);
-    return newErrors.length === 0;
+    return errorArray;
+  };
+
+  const validation = () => {
+    let newErrorsArray = [];
+    const excludedFields = ["breed", "pesel"];
+
+    newErrorsArray = validateObject(visit, newErrorsArray, excludedFields);
+    newErrorsArray = validateObject(patient, newErrorsArray, excludedFields);
+    newErrorsArray = validateObject(owner, newErrorsArray, excludedFields);
+
+    setErrors(newErrorsArray);
+
+    return newErrorsArray.length === 0;
   };
   const hasErrorField = (fieldName) => {
-    return errors.some((error) => error.field === fieldName);
+    return errors.some((error) => error === fieldName);
   };
-  const getErrorMessage = (fieldName) => {
-    const error = errors.find((error) => error.field === fieldName);
-    return error ? error.message : null;
+  const goToList = () => {
+    navigate("/visitList");
   };
 
   const handleSaveForm = (e) => {
@@ -187,20 +109,15 @@ const Registration = () => {
         <NavBar />
         <h1 className="registration_header">Rejestracja</h1>
         <form className="registration_container" onSubmit={handleSaveForm}>
-          <RegistrationAppointment
-            hasError={hasErrorField}
-            getErrorMessage={getErrorMessage}
-          />
-          <RegistrationPatient
-            hasError={hasErrorField}
-            getErrorMessage={getErrorMessage}
-          />
-          <RegistrationOwner
-            hasError={hasErrorField}
-            getErrorMessage={getErrorMessage}
-          />
+          <RegistrationAppointment hasError={hasErrorField} />
+          <RegistrationPatient hasError={hasErrorField} />
+          <RegistrationOwner hasError={hasErrorField} />
           <div className="registration_buttons">
-            <Button text="Anuluj" className="btn secondary_button" />
+            <Button
+              text="Anuluj"
+              className="btn secondary_button"
+              onClick={goToList}
+            />
             <Button
               type="submit"
               text="Zapisz"

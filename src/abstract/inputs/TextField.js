@@ -7,7 +7,7 @@ const TextField = ({
   value,
   onChange,
   className,
-  errorMessage,
+  hasError,
 }) => {
   return (
     <label>
@@ -19,7 +19,7 @@ const TextField = ({
         onChange={onChange}
         className={className}
       />
-      {errorMessage && <p className="error_message">{errorMessage}</p>}
+      {hasError && <p className="error_message">To pole jest wymagane!</p>}
     </label>
   );
 };
