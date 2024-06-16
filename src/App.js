@@ -20,7 +20,7 @@ const App = () => {
           <Route path="/" element={<LoginForm />} />
           <Route path="*" element={<NotFound />} />
           <Route path="/visitList" element={<VisitList />} />
-          <Route path="/registration" element={<Registration />} />
+          <Route path="/registration/:id" element={<Registration />} />
         </Routes>
       </HashRouter>
       <Modal

@@ -10,7 +10,7 @@ import {
   updateVisitFormField,
 } from "../../store/formSlice";
 
-const RegistrationAppointment = () => {
+const RegistrationAppointment = ({ hasError }) => {
   const visitFormVisit = useSelector((state) => state.form.visit);
   const dispatch = useDispatch();
   const handleInputChange = (name, value) => {
@@ -32,17 +32,21 @@ const RegistrationAppointment = () => {
       <div className="registration_section">
         <section className="registration_inputs">
           <TextField
-            text="Cel wizyty *"
+            text="Cel wizyty*"
             name="visitPurpose"
             type="text"
             value={visitFormVisit.visitPurpose}
             onChange={(e) => handleInputChange("visitPurpose", e.target.value)}
+            className={hasError("visitPurpose") ? "error_field" : ""}
+            hasError={hasError("visitPurpose")}
           />
           <DatePicker
             text="Data wizyty *"
             name="visitDate"
             selectedDate={visitFormVisit.visitDate}
             onChange={handleVisitDateChange}
+            className={hasError("visitDate") ? "error_field" : ""}
+            hasError={hasError("visitDate")}
           />
         </section>
         <TextArea
@@ -52,6 +56,8 @@ const RegistrationAppointment = () => {
           onChange={(e) =>
             handleInputChange("visitDescription", e.target.value)
           }
+          className={hasError("visitDescription") ? "error_field" : ""}
+          hasError={hasError("visitDescription")}
         />
         <section className="registration_selects single_input">
           <SelectInput
@@ -60,6 +66,7 @@ const RegistrationAppointment = () => {
             options={["Standard", "Pilne"]}
             value={visitFormVisit.status}
             onChange={handleVisitStatusChange}
+            hasError={hasError("status")}
           />
         </section>
       </div>

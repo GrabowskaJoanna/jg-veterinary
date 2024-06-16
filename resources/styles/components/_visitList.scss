@@ -56,6 +56,7 @@
       border-bottom: 1px solid $inputs-color;
       display: flex;
       justify-content: space-between;
+      cursor: pointer;
 
       &:last-of-type {
         border-bottom: none;
@@ -102,11 +103,13 @@
     &:disabled {
       .visit_pagination_icon {
         opacity: 0.3;
+        cursor: auto;
       }
     }
 
     .visit_pagination_icon {
       color: $primary-color;
+      cursor: pointer;
     }
   }
 

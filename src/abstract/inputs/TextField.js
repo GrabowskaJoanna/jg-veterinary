@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 
-const TextField = ({ type, name, text, value, onChange, className }) => {
+const TextField = ({
+  type,
+  name,
+  text,
+  value,
+  onChange,
+  className,
+  hasError,
+}) => {
   return (
     <label>
       {text}
@@ -11,6 +19,7 @@ const TextField = ({ type, name, text, value, onChange, className }) => {
         onChange={onChange}
         className={className}
       />
+      {hasError && <p className="error_message">To pole jest wymagane!</p>}
     </label>
   );
 };
