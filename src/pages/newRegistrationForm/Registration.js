@@ -5,10 +5,10 @@ import RegistrationAppointment from "./components/RegistrationAppointment";
 import RegistrationPatient from "./components/RegistrationPatient";
 import RegistrationOwner from "./components/RegistrationOwner";
 import Button from "../../abstract/buttons/Button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import visitActions from "../visitList/visitActions";
-import { clearForm } from "../store/formSlice";
+import { setRegistrationForm, clearForm } from "../store/formSlice";
 
 const Registration = () => {
   const [errors, setErrors] = useState([]);
@@ -19,6 +19,78 @@ const Registration = () => {
   const patient = form.patient;
   const owner = form.owner;
   const dispatch = useDispatch();
+  const { id } = useParams();
+
+  const flatFormState = {
+    success: true,
+    id: form.id,
+    visitPurpose: visit.visitPurpose,
+    visitDate: visit.visitDate,
+    visitDescription: visit.visitDescription,
+    status: visit.status,
+    chipNumber: patient.chipNumber,
+    petName: patient.petName,
+    species: patient.species,
+    age: patient.age,
+    breed: patient.breed,
+    race: patient.breed,
+    name: owner.name,
+    phoneNumber: owner.phoneNumber,
+    surname: owner.surname,
+    emailAddress: owner.emailAddress,
+    pesel: owner.pesel,
+  };
+
+  useEffect(() => {
+    if (parseInt(id) === 0) {
+      dispatch(clearForm());
+      return;
+    }
+    fetch(`http://localhost:7080/api/visits/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Basic " + token,
+      },
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error("Nie znaleziono wizyty");
+        }
+      })
+      .then((data) => {
+        console.log("Data from API:", data);
+        const registrationForm = {
+          id: data.id,
+          visit: {
+            visitPurpose: data.visitPurpose,
+            visitDate: data.visitDate,
+            visitDescription: data.visitDescription,
+            status: data.status,
+          },
+          patient: {
+            chipNumber: data.chipNumber,
+            petName: data.petName,
+            species: data.species,
+            age: data.age,
+            breed: data.breed,
+          },
+          owner: {
+            name: data.name,
+            phoneNumber: data.phoneNumber,
+            surname: data.surname,
+            emailAddress: data.emailAddress,
+            pesel: data.emailAddress,
+          },
+        };
+        dispatch(setRegistrationForm(registrationForm));
+      })
+      .catch((error) => {
+        console.error("Błąd pobierania wizyty:", error);
+      });
+  }, [id, token, dispatch]);
 
   const validateObject = (object, errorArray, excludedFields) => {
     Object.keys(object).forEach((key) => {
@@ -55,28 +127,17 @@ const Registration = () => {
     if (!validation()) {
       return;
     }
-
-    const flatFormState = {
-      success: true,
-      id: form.id,
-      visitPurpose: visit.visitPurpose,
-      visitDate: visit.visitDate,
-      visitDescription: visit.visitDescription,
-      status: visit.status,
-      chipNumber: patient.chipNumber,
-      petName: patient.petName,
-      species: patient.species,
-      age: patient.age,
-      breed: patient.breed,
-      race: patient.breed,
-      name: owner.name,
-      phoneNumber: owner.phoneNumber,
-      surname: owner.surname,
-      emailAddress: owner.emailAddress,
-      pesel: owner.pesel,
-    };
-    fetch(`http://localhost:7080/api/visits`, {
-      method: "POST",
+    let url;
+    let method;
+    if (parseInt(id) === 0) {
+      method = "POST";
+      url = "http://localhost:7080/api/visits";
+    } else {
+      method = "PUT";
+      url = `http://localhost:7080/api/visits/${id}`;
+    }
+    fetch(url, {
+      method: method,
       headers: {
         "Content-Type": "application/json",
         Authorization: "Basic " + token,
