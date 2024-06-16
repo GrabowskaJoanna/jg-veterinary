@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 
-const TextField = ({ type, name, text, value, onChange, className }) => {
+const TextField = ({
+  type,
+  name,
+  text,
+  value,
+  onChange,
+  className,
+  errorMessage,
+}) => {
   return (
     <label>
       {text}
@@ -11,6 +19,7 @@ const TextField = ({ type, name, text, value, onChange, className }) => {
         onChange={onChange}
         className={className}
       />
+      {errorMessage && <p className="error_message">{errorMessage}</p>}
     </label>
   );
 };

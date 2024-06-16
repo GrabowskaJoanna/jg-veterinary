@@ -72,7 +72,7 @@ const LoginForm = () => {
             text="Nazwa użytkownika*"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className={error ? "error" : null}
+            className={error ? "error_field" : null}
           />
           <TextField
             type="password"
@@ -80,7 +80,7 @@ const LoginForm = () => {
             text="Hasło*"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className={error ? "error" : null}
+            className={error ? "error_field" : null}
           />
           <button
             type="button"

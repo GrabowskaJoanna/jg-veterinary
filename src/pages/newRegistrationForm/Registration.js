@@ -19,7 +19,6 @@ const Registration = () => {
   const patient = useSelector((state) => state.form.patient);
   const owner = useSelector((state) => state.form.owner);
   const dispatch = useDispatch();
-  console.log(visit);
 
   const validation = () => {
     const newErrors = [];
@@ -46,7 +45,7 @@ const Registration = () => {
         message: "Opis wizyty jest za krótki",
       });
     }
-    if (visit.visitDate === null) {
+    if (!visit.visitDate) {
       newErrors.push({ field: "visitDate", message: "Wymagana data wizyty" });
     }
     if (!patient.chipNumber) {
@@ -64,6 +63,17 @@ const Registration = () => {
         field: "species",
         message: "Podany nazwa gatunku jest za krótka",
       });
+    }
+    if (!patient.name) {
+      newErrors.push({ field: "petName", message: "Wymagane imię pacjenta" });
+    } else if (patient.name < 3) {
+      newErrors.push({
+        field: "petName",
+        message: "Podane imię pacjenta jest za krótkie",
+      });
+    }
+    if (!patient.age) {
+      newErrors.push({ field: "age", message: "Wymagany wiek pacjenta" });
     }
     if (!owner.name) {
       newErrors.push({
@@ -106,9 +116,15 @@ const Registration = () => {
         message: "Email jest nieprawidłowy",
       });
     }
-
     setErrors(newErrors);
     return newErrors.length === 0;
+  };
+  const hasErrorField = (fieldName) => {
+    return errors.some((error) => error.field === fieldName);
+  };
+  const getErrorMessage = (fieldName) => {
+    const error = errors.find((error) => error.field === fieldName);
+    return error ? error.message : null;
   };
 
   const handleSaveForm = (e) => {
@@ -171,18 +187,18 @@ const Registration = () => {
         <NavBar />
         <h1 className="registration_header">Rejestracja</h1>
         <form className="registration_container" onSubmit={handleSaveForm}>
-          {errors.length > 0 && (
-            <div className="error_field">
-              {errors.map((error, index) => (
-                <p key={index} className="error_message">
-                  {error.message}
-                </p>
-              ))}
-            </div>
-          )}
-          <RegistrationAppointment />
-          <RegistrationPatient />
-          <RegistrationOwner errors={errors} />
+          <RegistrationAppointment
+            hasError={hasErrorField}
+            getErrorMessage={getErrorMessage}
+          />
+          <RegistrationPatient
+            hasError={hasErrorField}
+            getErrorMessage={getErrorMessage}
+          />
+          <RegistrationOwner
+            hasError={hasErrorField}
+            getErrorMessage={getErrorMessage}
+          />
           <div className="registration_buttons">
             <Button text="Anuluj" className="btn secondary_button" />
             <Button

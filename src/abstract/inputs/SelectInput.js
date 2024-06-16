@@ -1,6 +1,13 @@
 import React from "react";
 
-const SelectInput = ({ text, options, name, value, onChange }) => {
+const SelectInput = ({
+  text,
+  options,
+  name,
+  value,
+  onChange,
+  errorMessage,
+}) => {
   return (
     <>
       <label>
@@ -12,6 +19,7 @@ const SelectInput = ({ text, options, name, value, onChange }) => {
             </option>
           ))}
         </select>
+        {errorMessage && <p className="error_message">{errorMessage}</p>}
       </label>
     </>
   );

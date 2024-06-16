@@ -69,20 +69,7 @@
     margin-left: 20px;
   }
 }
-.error_field {
-  display: flex;
-  background-color: rgba(255,184,184,0.1);
-  border: 1px solid red;
-  margin-bottom: 10px;
-  border-radius: 5px;
-}
 
-.error_message {
-  color: red;
-  font-weight: bold;
-  font-size: 12px;
-  margin: 5px;
-}
 
 @media (width > 1500px) {
   .registration_container {
