@@ -1,0 +1,22 @@
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: jg-db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - ./data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "7432:5432"
+  backend:
+    image: jg-backend
+    ports:
+      - "7080:8080"
+    depends_on:
+      - db
+
+
+volumes:
+  pgdata:
