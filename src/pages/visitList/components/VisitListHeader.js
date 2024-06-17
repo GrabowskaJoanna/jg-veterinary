@@ -4,13 +4,13 @@ const VisitListHeader = () => {
   return (
     <thead className="visit_table_header">
       <tr>
-        <th>Nr chipa</th>
-        <th>Cel wizyty</th>
-        <th>Data wizyty</th>
-        <th>Gatunek</th>
-        <th>Status</th>
-        <th>Imię</th>
-        <th>Nazwisko</th>
+        <th className="chip-number">Nr chipa</th>
+        <th className="visit-purpose">Cel wizyty</th>
+        <th className="visit-date">Data wizyty</th>
+        <th className="species">Gatunek</th>
+        <th className="status">Status</th>
+        <th className="name">Imię</th>
+        <th className="surname">Nazwisko</th>
         <th></th>
       </tr>
     </thead>
