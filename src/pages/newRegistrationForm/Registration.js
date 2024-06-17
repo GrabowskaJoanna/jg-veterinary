@@ -74,8 +74,8 @@ const Registration = () => {
             chipNumber: data.chipNumber,
             petName: data.petName,
             species: data.species,
-            age: data.age,
-            breed: data.breed,
+            age: data.age == null ? "" : data.age,
+            breed: data.breed == null ? "" : data.age,
           },
           owner: {
             name: data.name,
