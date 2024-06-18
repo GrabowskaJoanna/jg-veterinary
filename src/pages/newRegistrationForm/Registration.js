@@ -10,6 +10,11 @@ import { useDispatch, useSelector } from "react-redux";
 import visitActions from "../visitList/visitActions";
 import { setRegistrationForm, clearForm } from "../store/formSlice";
 
+const StatusValues = {
+  Pilne: "URGENT",
+  Stabilne: "STABLE",
+};
+
 const Registration = () => {
   const [errors, setErrors] = useState([]);
   const token = sessionStorage.getItem("token");
@@ -42,6 +47,10 @@ const Registration = () => {
   };
 
   useEffect(() => {
+    if (!token) {
+      navigate("/");
+      return;
+    }
     if (parseInt(id) === 0) {
       dispatch(clearForm());
       return;
@@ -61,7 +70,6 @@ const Registration = () => {
         }
       })
       .then((data) => {
-        console.log("Data from API:", data);
         const registrationForm = {
           id: data.id,
           visit: {
@@ -74,8 +82,8 @@ const Registration = () => {
             chipNumber: data.chipNumber,
             petName: data.petName,
             species: data.species,
-            age: data.age,
-            breed: data.breed,
+            age: data.age == null ? "" : data.age,
+            breed: data.breed == null ? "" : data.age,
           },
           owner: {
             name: data.name,
@@ -90,7 +98,7 @@ const Registration = () => {
       .catch((error) => {
         console.error("Błąd pobierania wizyty:", error);
       });
-  }, [id, token, dispatch]);
+  }, [id, token, dispatch, navigate]);
 
   const validateObject = (object, errorArray, excludedFields) => {
     Object.keys(object).forEach((key) => {
@@ -117,7 +125,8 @@ const Registration = () => {
   const hasErrorField = (fieldName) => {
     return errors.some((error) => error === fieldName);
   };
-  const goToList = () => {
+  const goToList = (e) => {
+    e.preventDefault();
     navigate("/visitList");
   };
 
@@ -127,6 +136,11 @@ const Registration = () => {
     if (!validation()) {
       return;
     }
+    const mappedFlatFormState = {
+      ...flatFormState,
+      status: StatusValues[flatFormState.status] || flatFormState.status,
+    };
+
     let url;
     let method;
     if (parseInt(id) === 0) {
@@ -142,7 +156,7 @@ const Registration = () => {
         "Content-Type": "application/json",
         Authorization: "Basic " + token,
       },
-      body: JSON.stringify(flatFormState),
+      body: JSON.stringify(mappedFlatFormState),
     })
       .then((response) => {
         if (response.ok) {
@@ -157,12 +171,6 @@ const Registration = () => {
         console.error("Błąd sieci", error);
       });
   };
-
-  useEffect(() => {
-    if (!token) {
-      navigate("/");
-    }
-  }, [navigate]);
 
   if (token) {
     return (

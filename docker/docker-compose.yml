@@ -16,7 +16,13 @@ services:
       - "7080:8080"
     depends_on:
       - db
-
+  frontend:
+    image: jg-frontend
+#    build: .
+    ports:
+      - "7000:3000"
+    depends_on:
+      - backend
 
 volumes:
   pgdata:

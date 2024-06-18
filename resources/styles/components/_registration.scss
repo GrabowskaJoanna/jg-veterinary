@@ -72,6 +72,12 @@
   }
 }
 
+.urgent {
+  font-weight: bold;
+  color: red;
+  background-color: rgba(255,0,0,0.1);
+}
+
 
 @media (width > 1500px) {
   .registration_container {

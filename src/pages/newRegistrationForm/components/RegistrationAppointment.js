@@ -13,6 +13,17 @@ import {
 const RegistrationAppointment = ({ hasError }) => {
   const visitFormVisit = useSelector((state) => state.form.visit);
   const dispatch = useDispatch();
+
+  const StatusValues = {
+    Pilne: "URGENT",
+    Stabilne: "STABLE",
+  };
+
+  const StatusLabels = {
+    URGENT: "Pilne",
+    STABLE: "Stabilne",
+  };
+
   const handleInputChange = (name, value) => {
     dispatch(updateVisitFormField({ name, value }));
   };
@@ -63,8 +74,8 @@ const RegistrationAppointment = ({ hasError }) => {
           <SelectInput
             name="status"
             text="Status "
-            options={["Standard", "Pilne"]}
-            value={visitFormVisit.status}
+            options={["Stabilne", "Pilne"]}
+            value={StatusLabels[visitFormVisit.status] || visitFormVisit.status}
             onChange={handleVisitStatusChange}
             hasError={hasError("status")}
           />
