@@ -42,6 +42,7 @@
           width: 35px;
           border-top-right-radius: 12px;
         }
+
       }
     }
   }
@@ -54,7 +55,10 @@
       border-bottom: 1px solid $inputs-color;
       display: flex;
       justify-content: space-between;
-      cursor: pointer;
+
+      .surname {
+        width: 140px;
+      }
 
       &:last-of-type {
         border-bottom: none;
@@ -65,12 +69,18 @@
        padding: 18px 0;
 
         &:last-of-type {
-          width: 20px;
+          width: 40px;
           margin-right: 30px;
+          display: flex;
+          align-items: center;
         }
 
         .icon-close {
           color: crimson;
+          cursor: pointer;
+        }
+        img {
+          margin-right: 15px;
           cursor: pointer;
         }
 
@@ -156,7 +166,7 @@
   }
 }
 
-@media (width < 900px) {
+@media (width < 960px) {
   .visit_header {
     font-size: 30px;
     padding: 10px;
@@ -169,8 +179,13 @@
       font-size: 16px;
 
       tr {
+        display: flex;
+        justify-content: space-around;
         th {
-          width: 100px;
+          &:last-child {
+           width: 60px;
+            border-top-right-radius: 12px;
+          }
         }
       }
 
@@ -181,7 +196,7 @@
         align-self: center;
 
         td {
-          width: 100px;
+          width: 115px;
           font-size: 12px;
           padding: 10px 0;
         }
@@ -191,13 +206,13 @@
   }
 }
 
-@media (width < 750px) {
+@media (width < 900px) {
   .species, .name {
     display: none;
   }
 }
 
-@media (width < 600px) {
+@media (width < 700px) {
   .species, .name, .chip-number {
     display: none;
   }
@@ -206,14 +221,14 @@
     padding: 5px;
   }
   .visit_table {
-    width: 80vw;
+    width: 90vw;
 
     .visit_table_header {
       font-size: 14px;
 
       tr {
         th {
-          width: 90px;
+          width: 80px;
         }
       }
 
@@ -222,13 +237,52 @@
       tr {
 
         td {
-          width: 85px;
+          width: 100px;
           font-size: 14px;
           align-self: center;
 
           &:last-of-type {
-            width: 15px;
-            margin-right: 0;
+            width: 35px;
+          }
+        }
+      }
+
+    }
+  }
+}
+
+@media (width < 550px) {
+  .species, .name, .chip-number {
+    display: none;
+  }
+  .visit_header {
+    font-size: 24px;
+    padding: 5px;
+  }
+  .visit_table {
+    width: 80vw;
+    overflow: auto;
+
+    .visit_table_header {
+      font-size: 12px;
+
+      tr {
+        th {
+          width: 70px;
+        }
+      }
+
+    }
+    .visit_table_body {
+      tr {
+
+        td {
+          width: 80px;
+          font-size: 12px;
+          align-self: center;
+
+          &:last-of-type {
+            width: 35px;
           }
         }
       }

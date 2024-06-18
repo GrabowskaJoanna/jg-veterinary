@@ -1,28 +1,93 @@
-# Getting Started with Create React App
+### JG-veterinary is the app to book visits for pets in a veterinary clinic.
+### The project uses a simple backend in Java, PostgresSQL database and a frontend in React.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
-To install all dependencies, follow these steps:
 
-1. Clone the Repository:
+# Link to prototype:
+[https://www.figma.com/proto/aAc1YUuwI2jxMIplsOKob1/Untitled?node-id=2-22&t=jGD36CfDeVasx8YQ-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1](https://www.figma.com/proto/aAc1YUuwI2jxMIplsOKob1/Untitled?node-id=2-22&t=jGD36CfDeVasx8YQ-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1)
+
+# Features:
+
+* Routing (React Router)
+* React with Hooks
+* App state management by Redux toolkit
+* Fetch to and from backend
+* Webpack
+* SessionStorage to save token and username
+* Responsive Web Design (RWD)
+
+# App description:
+
+Login form:
+
+<img src="resources/images/Login.PNG" alt="loginForm" width="900px" />
+
+After logging in, you will navigate to the visit list, where you can delete or edit a visit. You can also navigate to the registration page to add a new visit.
+
+Visit list
+
+   
+<img src="resources/images/visitlist.PNG" alt="visitlist" width="900px" />
+
+
+After clicking on the cross, you can show a modal where you can confirm that the record should be deleted.
+
+Visit list - modal
+
+<img src="resources/images/visitlist-deleting.PNG" alt="visitlist-modal" width="900px" />
+
+You can also click on the pencil to edit the record.
+
+Editing a visit
+
+<img src="resources/images/registration-editing.PNG" alt="registration-editing" width="900px" />
+
+On this page, you can add a new visit. 
+
+Registration
+
+<img src="resources/images/registration.PNG" alt="registration" width="900px" />
+
+After logging out, you will be returned to the login form.
+
+
+
+### The entire environment can be set up using Docker by executing the following commands.
+
+
+# Installation:
+
+## Requires:
+Docker Engine installed and started.
+
+## Step 1:
+Clone the Repository:
 `git clone https://github.com/GrabowskaJoanna/jg-veterinary.git`
-2. Navigate to the Project Directory:
-   `cd jg-veterinary`
-3. Install Dependencies:
-   `npm install`
 
-In the project directory, you can run:
+## Step 2:
+Navigate to the project directory:
+`cd jg-veterinary`
 
-### `npm start`
+## Step 3:
+Install Dependencies:
+`npm install`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Step 4:
+In the project directory, use command `docker build -t jg-frontend .` to build the frontend docker image
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Step 5:
+Navigate to the directory docker/backend and use the command `docker build -t jg-backend .` to build the backend Docker image.
 
-Build for Production:
-`npm run build`
-These commands will set up and run the project as described in the README.md file.
+## Step 6:
+Navigate to the `docker`  directory and use `docker-compose -p jg up -d` to execute the command that will connect all services
+
+
+
+## Used ports (localhost):
+Backend: 7080,
+
+Postgres: 7543,
+
+Frontend: 7000,
+
 
