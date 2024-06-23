@@ -55,6 +55,7 @@ const LoginForm = () => {
       username: "joannag",
       password: "v3t3r1n4ry",
     });
+    alert("Nazwa użytkownika i hasło zostały wyświetlone w konsoli");
   };
 
   return (

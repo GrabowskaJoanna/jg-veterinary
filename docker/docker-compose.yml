@@ -17,7 +17,7 @@ services:
     depends_on:
       - db
   frontend:
-    image: jg-frontend:1.0.0
+    image: jg-frontend
 #    build: .
     ports:
       - "3000:3000"
