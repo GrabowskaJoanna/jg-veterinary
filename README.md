@@ -6,6 +6,47 @@
 # Link to prototype:
 [https://www.figma.com/proto/aAc1YUuwI2jxMIplsOKob1/Untitled?node-id=2-22&t=jGD36CfDeVasx8YQ-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1](https://www.figma.com/proto/aAc1YUuwI2jxMIplsOKob1/Untitled?node-id=2-22&t=jGD36CfDeVasx8YQ-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1)
 
+
+
+### The entire environment can be set up using Docker by executing the following commands:
+
+
+# Installation:
+
+## Requires:
+Docker Engine installed and started.
+
+## Step 1:
+Clone the Repository:
+`git clone https://github.com/GrabowskaJoanna/jg-veterinary.git`
+
+## Step 2:
+Navigate to the project directory:
+`cd jg-veterinary`
+
+## Step 3:
+Install Dependencies:
+`npm install`
+
+## Step 4:
+In the project directory, use command `docker build -t jg-frontend .` to build the frontend docker image
+
+## Step 5:
+Navigate to the directory docker/backend and use the command `docker build -t jg-backend .` to build the backend Docker image.
+
+## Step 6:
+Navigate to the `docker`  directory and use `docker-compose -p jg up -d` to execute the command that will connect all services
+
+
+
+## Used ports (localhost):
+Backend: 7080,
+
+Postgres: 7543,
+
+Frontend: 3000,
+
+
 # Features:
 
 * Routing (React Router)
@@ -50,44 +91,5 @@ On this page, you can add a new visit.
 
 After logging out, you will be returned to the login form.
 
-
-
-### The entire environment can be set up using Docker by executing the following commands.
-
-
-# Installation:
-
-## Requires:
-Docker Engine installed and started.
-
-## Step 1:
-Clone the Repository:
-`git clone https://github.com/GrabowskaJoanna/jg-veterinary.git`
-
-## Step 2:
-Navigate to the project directory:
-`cd jg-veterinary`
-
-## Step 3:
-Install Dependencies:
-`npm install`
-
-## Step 4:
-In the project directory, use command `docker build -t jg-frontend .` to build the frontend docker image
-
-## Step 5:
-Navigate to the directory docker/backend and use the command `docker build -t jg-backend .` to build the backend Docker image.
-
-## Step 6:
-Navigate to the `docker`  directory and use `docker-compose -p jg up -d` to execute the command that will connect all services
-
-
-
-## Used ports (localhost):
-Backend: 7080,
-
-Postgres: 7543,
-
-Frontend: 3000,
 
 
