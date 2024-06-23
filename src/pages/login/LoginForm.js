@@ -59,9 +59,9 @@ const LoginForm = () => {
 
   return (
     <div className="container">
-      <div className="form_image"></div>
-      <form className="form_login" onSubmit={handleLogin}>
-        <div className="form_login_container">
+      <aside className="form_image"></aside>
+      <main className="form_login_container">
+        <form className="form_login" onSubmit={handleLogin}>
           <h1 className="form_login_header">Logowanie</h1>
           {error && (
             <p style={{ color: "red", marginBottom: "5px" }}>{error}</p>
@@ -90,8 +90,8 @@ const LoginForm = () => {
             Nie pamiętasz hasła?
           </button>
           <Button type="submit" text="Zaloguj" className="btn primary_button" />
-        </div>
-      </form>
+        </form>
+      </main>
     </div>
   );
 };
