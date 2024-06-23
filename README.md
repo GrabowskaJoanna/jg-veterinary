@@ -18,13 +18,13 @@
 
 # App description:
 
-Login form:
+##### Login form:
 
 <img src="resources/images/Login.PNG" alt="loginForm" width="900px" />
 
 After logging in, you will navigate to the visit list, where you can delete or edit a visit. You can also navigate to the registration page to add a new visit.
 
-Visit list
+##### Visit list
 
    
 <img src="resources/images/visitlist.PNG" alt="visitlist" width="900px" />
@@ -32,19 +32,19 @@ Visit list
 
 After clicking on the cross, you can show a modal where you can confirm that the record should be deleted.
 
-Visit list - modal
+##### Visit list - modal
 
 <img src="resources/images/visitlist-deleting.PNG" alt="visitlist-modal" width="900px" />
 
 You can also click on the pencil to edit the record.
 
-Editing a visit
+##### Editing a visit
 
 <img src="resources/images/registration-editing.PNG" alt="registration-editing" width="900px" />
 
 On this page, you can add a new visit. 
 
-Registration
+##### Registration
 
 <img src="resources/images/registration.PNG" alt="registration" width="900px" />
 
