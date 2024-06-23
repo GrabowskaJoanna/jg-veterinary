@@ -88,6 +88,6 @@ Backend: 7080,
 
 Postgres: 7543,
 
-Frontend: 7000,
+Frontend: 3000,
 
 
