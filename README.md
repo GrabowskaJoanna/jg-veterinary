@@ -46,7 +46,9 @@ Postgres: 7543,
 
 Frontend: 3000,
 
+
 ## To get the username and password, please click on the link 'Nie pamiętasz hasła?' to display them in the console.
+
 
 
 # Features:
