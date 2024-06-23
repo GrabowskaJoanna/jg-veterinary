@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
 
 module.exports = {
-  entry: ["whatwg-fetch", "./src/index.js"],
+  entry: ["./removeHMRClient.js", "whatwg-fetch", "./src/index.js"],
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "bundle.js",
@@ -13,7 +13,9 @@ module.exports = {
     },
     compress: true,
     port: 3000,
-    open: true,
+    hot: false,
+    liveReload: false,
+    open: false,
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -42,11 +44,7 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: [
-          "style-loader", // Injects styles into DOM
-          "css-loader", // Turns CSS into CommonJS
-          "sass-loader", // Compiles Sass to CSS
-        ],
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
     ],
   },
