@@ -15,14 +15,14 @@
   background-repeat: no-repeat;
 }
 
-.form_login {
+.form_login_container {
   background-color: $text-color;
   margin: auto;
   border-radius: 24px;
   border: 1px solid black;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
 
-  .form_login_container {
+  .form_login {
     display: flex;
     flex-direction: column;
     padding: 70px;
