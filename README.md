@@ -46,6 +46,8 @@ Postgres: 7543,
 
 Frontend: 3000,
 
+## To get the username and password, please click on the link 'Nie pamiętasz hasła?' to display them in the console.
+
 
 # Features:
 
@@ -62,6 +64,8 @@ Frontend: 3000,
 ##### Login form:
 
 <img src="resources/images/Login.PNG" alt="loginForm" width="900px" />
+
+### To get the username and password, please click on the link 'Nie pamiętasz hasła?' to display them in the console.
 
 After logging in, you will navigate to the visit list, where you can delete or edit a visit. You can also navigate to the registration page to add a new visit.
 
