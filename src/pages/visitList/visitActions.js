@@ -1,4 +1,4 @@
-import { setItems, setPage, setTotalItems } from "../store/listSlice";
+import { setItems, setTotalItems } from "../store/listSlice";
 
 export class VisitActions {
   fetchVisits = () => async (dispatch, getState) => {
