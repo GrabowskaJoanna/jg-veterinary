@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { deleteItem } from "./listSlice";
 
 const initialModalState = {
   isVisible: false,
@@ -20,5 +19,5 @@ const modalSlice = createSlice({
   },
 });
 
-export const { showModal, hideModal, deleteRow } = modalSlice.actions;
+export const { showModal, hideModal } = modalSlice.actions;
 export default modalSlice.reducer;
