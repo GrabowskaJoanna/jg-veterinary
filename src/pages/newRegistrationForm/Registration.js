@@ -83,14 +83,14 @@ const Registration = () => {
             petName: data.petName,
             species: data.species,
             age: data.age == null ? "" : data.age,
-            breed: data.breed == null ? "" : data.age,
+            breed: data.breed == null ? "" : data.breed,
           },
           owner: {
             name: data.name,
             phoneNumber: data.phoneNumber,
             surname: data.surname,
             emailAddress: data.emailAddress,
-            pesel: data.emailAddress,
+            pesel: data.pesel,
           },
         };
         dispatch(setRegistrationForm(registrationForm));
