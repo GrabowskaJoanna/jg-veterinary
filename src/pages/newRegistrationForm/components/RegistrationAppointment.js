@@ -29,7 +29,9 @@ const RegistrationAppointment = ({ hasError }) => {
   };
 
   const handleVisitStatusChange = (e) => {
-    dispatch(setVisitStatus(e.target.value));
+    const selectedValue = e.target.value;
+    const status = StatusValues[selectedValue];
+    dispatch(setVisitStatus(status));
   };
 
   const handleVisitDateChange = (date) => {

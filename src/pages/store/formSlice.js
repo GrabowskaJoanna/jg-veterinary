@@ -6,7 +6,7 @@ const initialFormState = {
     visitPurpose: "",
     visitDate: null,
     visitDescription: "",
-    status: "Standard",
+    status: "Stabilne",
   },
   patient: {
     chipNumber: "",
