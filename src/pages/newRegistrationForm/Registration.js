@@ -160,7 +160,6 @@ const Registration = () => {
     })
       .then((response) => {
         if (response.ok) {
-          dispatch(visitActions.fetchVisits());
           navigate("/visitList");
           dispatch(clearForm());
         } else {
