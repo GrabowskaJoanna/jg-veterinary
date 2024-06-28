@@ -50,6 +50,7 @@ const LoginForm = () => {
   };
 
   const showLoginData = () => {
+    alert("Nazwa użytkownika i hasło zostały wyświetlone w konsoli");
     console.log({
       username: "joannag",
       password: "v3t3r1n4ry",
