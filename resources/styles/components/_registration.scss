@@ -129,6 +129,20 @@
     .single_input {
       align-self: center;
     }
+
+  }
+  .registration_buttons {
+    justify-content: center;
+
+    .primary_button {
+      padding: 10px 50px;
+      font-size: 12px;
+    }
+
+    .secondary_button {
+      padding: 7px 35px;
+      font-size: 12px;
+    }
   }
 }
 
@@ -136,21 +150,5 @@
   .registration_section {
     padding-left: 5px;
   }
-    .registration_buttons {
-      justify-content: center;
-
-      .primary_button {
-        padding: 5px 50px;
-        font-size: 12px;
-        margin-left: 5px;
-      }
-
-      .secondary_button {
-        padding: 5px 35px;
-        font-size: 12px;
-        margin-left: 0;
-      }
-
-    }
   }
 
