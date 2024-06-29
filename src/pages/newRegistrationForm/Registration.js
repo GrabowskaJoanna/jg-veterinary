@@ -7,7 +7,6 @@ import RegistrationOwner from "./components/RegistrationOwner";
 import Button from "../../abstract/buttons/Button";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import visitActions from "../visitList/visitActions";
 import { setRegistrationForm, clearForm } from "../store/formSlice";
 
 const StatusValues = {
