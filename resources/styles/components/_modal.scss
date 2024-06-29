@@ -49,3 +49,57 @@
   }
 
 }
+
+@media (width < 1000px) {
+  .modal_container {
+    .modal_container_header {
+      font-size: 24px;
+    }
+    .modal_container_text {
+      font-size: 16px;
+    }
+    .secondary_button {
+      font-size: 16px;
+      padding: 10px 50px;
+    }
+    .primary_button {
+      font-size: 16px;
+      padding: 10px 70px;
+    }
+
+  }
+}
+
+@media (width < 850px) {
+  .modal_container {
+    max-width: 60%;
+    .modal_container_header {
+      font-size: 20px;
+    }
+    .modal_container_text {
+      font-size: 14px;
+    }
+    .secondary_button {
+      font-size: 14px;
+      padding: 6px 30px;
+    }
+    .primary_button {
+      font-size: 14px;
+      padding: 6px 50px;
+    }
+
+  }
+}
+@media (width < 500px) {
+  .modal_container {
+    .btn {
+      margin: 5px;
+    }
+    .secondary_button {
+      padding: 5px 25px;
+    }
+    .primary_button {
+      padding: 5px 40px;
+    }
+  }
+}
