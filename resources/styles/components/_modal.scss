@@ -27,6 +27,7 @@
     font-size: 28px;
     margin: 20px;
   }
+
   .modal_container_text {
     margin: 20px;
     font-size: 18px;
@@ -36,11 +37,13 @@
       font-weight: bold;
     }
   }
+
   .modal_container_buttons {
     display: flex;
     justify-content: flex-end;
     margin-top: 30px;
   }
+
   button {
     border-radius: 6px;
     margin: 10px;
@@ -48,4 +51,72 @@
     font-size: 18px;
   }
 
+}
+
+@media (width < 1000px) {
+  .modal_container {
+    .modal_container_header {
+      font-size: 24px;
+    }
+
+    .modal_container_text {
+      font-size: 16px;
+    }
+
+    .secondary_button {
+      font-size: 16px;
+      padding: 10px 50px;
+    }
+
+    .primary_button {
+      font-size: 16px;
+      padding: 10px 70px;
+    }
+
+  }
+}
+
+@media (width < 850px) {
+  .modal_container {
+    max-width: 60%;
+
+    .modal_container_header {
+      font-size: 20px;
+    }
+
+    .modal_container_text {
+      font-size: 14px;
+    }
+
+    .secondary_button {
+      font-size: 14px;
+      padding: 6px 30px;
+    }
+
+    .primary_button {
+      font-size: 14px;
+      padding: 6px 50px;
+    }
+
+  }
+}
+
+@media (width < 500px) {
+  .modal_container {
+    .modal_container_header {
+      font-size: 18px;
+    }
+
+    .btn {
+      margin: 5px;
+    }
+
+    .secondary_button {
+      padding: 5px 25px;
+    }
+
+    .primary_button {
+      padding: 5px 40px;
+    }
+  }
 }
