@@ -16,6 +16,12 @@ module.exports = {
     hot: false,
     liveReload: false,
     open: false,
+    proxy: {
+      "/": {
+        target: "http://192.168.1.215:7080",
+        changeOrigin: true,
+      },
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({

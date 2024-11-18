@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import NavBar from "../../abstract/NavBar";
+import TopBar from "../../abstract/TopBar";
 import Footer from "../../abstract/Footer";
 import VisitListHeader from "./components/VisitListHeader";
 import Pagination from "./components/Pagination";
 import VisitListBody from "./components/VisitListBody";
 import { useDispatch, useSelector } from "react-redux";
 import VisitActions from "../visitList/visitActions";
+import NavTabs from "../../abstract/NavTabs";
 
 const VisitList = () => {
   const items = useSelector((state) => state.list.items);
@@ -25,15 +26,17 @@ const VisitList = () => {
   if (token) {
     return (
       <>
-        <NavBar />
-        <div className="visit_container">
-          <h1 className="visit_header">Terminarz</h1>
+        <TopBar />
+        <div className="pagination_container">
           <Pagination />
         </div>
-        <table className="visit_table">
-          <VisitListHeader />
-          <VisitListBody items={items} />
-        </table>
+        <div className="visit_container">
+          <NavTabs />
+          <table className="visit_table">
+            <VisitListHeader />
+            <VisitListBody items={items} />
+          </table>
+        </div>
         <Footer />
       </>
     );

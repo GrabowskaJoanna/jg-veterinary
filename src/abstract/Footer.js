@@ -15,9 +15,7 @@ const Footer = () => {
           alt="dog"
         />
       </div>
-      <h3 className="footer_text">
-        Coders <span>Lab</span> 2024
-      </h3>
+      <div />
     </footer>
   );
 };
