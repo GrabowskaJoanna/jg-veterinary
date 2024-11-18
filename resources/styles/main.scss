@@ -1,5 +1,5 @@
 @import "abstract/variables";
-@import "components/navbar";
+@import "components/topbar";
 @import "components/reset";
 @import "components/icons";
 @import "components/notFound";
@@ -10,6 +10,7 @@
 @import "components/registration";
 @import "components/visitList";
 @import "components/modal";
+@import "components/navTabs";
 
 body {
   margin: 0;

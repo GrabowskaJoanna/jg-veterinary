@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import NavBar from "../../abstract/NavBar";
+import TopBar from "../../abstract/TopBar";
 import Footer from "../../abstract/Footer";
 import RegistrationAppointment from "./components/RegistrationAppointment";
 import RegistrationPatient from "./components/RegistrationPatient";
@@ -8,6 +8,7 @@ import Button from "../../abstract/buttons/Button";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setRegistrationForm, clearForm } from "../store/formSlice";
+import NavTabs from "../../abstract/NavTabs";
 
 const StatusValues = {
   Pilne: "URGENT",
@@ -173,9 +174,9 @@ const Registration = () => {
   if (token) {
     return (
       <>
-        <NavBar />
-        <h1 className="registration_header">Rejestracja</h1>
+        <TopBar />
         <form className="registration_container" onSubmit={handleSaveForm}>
+          <NavTabs />
           <RegistrationAppointment hasError={hasErrorField} />
           <RegistrationPatient hasError={hasErrorField} />
           <RegistrationOwner hasError={hasErrorField} />

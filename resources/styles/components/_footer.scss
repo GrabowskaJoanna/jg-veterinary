@@ -14,7 +14,6 @@
   left: 0;
   width: 100vw;
 
-
   .footer_copyright {
     font-weight: bold;
 
@@ -44,7 +43,7 @@
     font-weight: bold;
 
     span {
-      color: $accent-color
+      color: $accent-color;
     }
   }
 }
@@ -80,7 +79,6 @@
       font-size: 12px;
     }
   }
-
 }
 @media (width < 600px) {
   .footer {
