@@ -175,8 +175,8 @@ const Registration = () => {
     return (
       <>
         <TopBar />
+        <NavTabs />
         <form className="registration_container" onSubmit={handleSaveForm}>
-          <NavTabs />
           <RegistrationAppointment hasError={hasErrorField} />
           <RegistrationPatient hasError={hasErrorField} />
           <RegistrationOwner hasError={hasErrorField} />

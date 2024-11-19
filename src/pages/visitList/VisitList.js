@@ -27,15 +27,17 @@ const VisitList = () => {
     return (
       <>
         <TopBar />
+        <div className="visit_wrapper">
         <div className="pagination_container">
+          <NavTabs />
           <Pagination />
         </div>
         <div className="visit_container">
-          <NavTabs />
           <table className="visit_table">
             <VisitListHeader />
             <VisitListBody items={items} />
           </table>
+        </div>
         </div>
         <Footer />
       </>
