@@ -1,5 +1,4 @@
 .nav_tabs {
-  width: 95vw;
   display: flex;
   justify-content: space-between;
   height: auto;
@@ -27,6 +26,24 @@
 
   &:first-of-type {
     box-shadow: -10px 0 0 -8px $shadow-color;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    p {
+      width: 25px;
+      height: 25px;
+      background-color: $primary-color;
+      border-radius: 50%;
+      font-size: 12px;
+      color: $text-color;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      font-weight: bold;
+      right: 30px;
+    }
+
   }
 
   &:last-of-type {
@@ -37,7 +54,7 @@
 .link {
   display: block;
   text-decoration: none;
-  padding: 20px 30px 20px 0;
+  padding: 20px 60px 20px 20px;
   color: $primary-color;
   opacity: 0.5;
   background-color: $text-color;
@@ -48,10 +65,6 @@
   font-weight: bold;
   font-size: 24px;
 
-  &:first-of-type {
-    box-shadow: none;
-  }
-
   &:hover {
     opacity: 1;
   }
@@ -59,4 +72,73 @@
   &.active {
     opacity: 1;
   }
+}
+
+
+@media (width < 1250px) {
+
+  .nav_links_item {
+    width: 220px;
+  }
+
+  .link {
+    font-size: 22px;
+  }
+}
+
+@media (width < 1000px) {
+
+  .nav_links_item {
+    width: 160px;
+
+    &:first-of-type {
+
+    p {
+      width: 20px;
+      height: 20px;
+      right: 35px;
+    }
+  }
+  }
+
+  .link {
+    font-size: 16px;
+  }
+}
+
+@media (width < 700px) {
+  .nav_links {
+    width: 250px;
+    bottom: 0;
+
+    .nav_links_item {
+      width: 180px;
+  }
+
+  .link {
+    font-size: 16px;
+    padding: 15px 60px 15px 15px;
+  }
+}
+}
+
+@media (width < 550px) {
+  .nav_links {
+    width: 220px;
+
+    .nav_links_item {
+
+      &:first-of-type {
+
+        p {
+          visibility: hidden;
+        }
+  }
+
+  .link {
+    font-size: 14px;
+    padding: 12px 40px 12px 12px;
+  }
+}
+}
 }

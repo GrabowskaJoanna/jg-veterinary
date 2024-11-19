@@ -1,7 +1,11 @@
 import { NavLink } from "react-router-dom";
 import React from "react";
+import { useSelector } from "react-redux";
 
 const NavTabs = () => {
+
+  const totalItems = useSelector((state) => state.list.totalItems);
+
   return (
     <div className="nav_tabs">
       <ul className="nav_links">
@@ -10,6 +14,7 @@ const NavTabs = () => {
             to="/visitList"
             className={({ isActive }) => (isActive ? "link active" : "link")}
           >
+            <p>{totalItems}</p>
             Terminarz
           </NavLink>
         </li>
