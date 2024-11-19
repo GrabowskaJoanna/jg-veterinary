@@ -19,6 +19,7 @@ const Pagination = () => {
 
 	return (
 		<div className='visit_pagination'>
+			<p>test</p>
 			<button
 				className='visit_pagination_button'
 				onClick={() => handlePageChange(currentPage - 1)}
