@@ -1,23 +1,23 @@
 @import "../abstract/variables";
 
 .btn {
-  font-size: 22px;
-  font-weight: bold;
-  border-radius: 6px;
-  cursor: pointer;
+	font-size: 20px;
+	font-weight: bold;
+	border-radius: 6px;
+	cursor: pointer;
 }
 
 .primary_button {
-  background-color: $primary-color;
-  color: $text-color;
-  border: 1px solid $primary-color;
-  padding: 10px 100px;
-  box-shadow: 0 0 9px $primary-color;
+	background-color: $primary-color;
+	color: $text-color;
+	border: 1px solid $primary-color;
+	padding: 8px 70px;
+	box-shadow: 0 0 9px $primary-color;
 }
 
 .secondary_button {
-  background-color: $inputs-color;
-  color: $primary-color;
-  border: 1px solid $primary-color;
-  padding: 10px 50px;
+	background-color: $inputs-color;
+	color: $primary-color;
+	border: 1px solid $primary-color;
+	padding: 8px 40px;
 }

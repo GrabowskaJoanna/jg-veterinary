@@ -1,91 +1,92 @@
 @import "../abstract/variables";
 body {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
-
 label {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-  font-weight: bold;
-  font-size: 12px;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 15px;
+	font-weight: bold;
+	font-size: 12px;
 }
 
 input {
-  background-color: $inputs-color;
-  border: none;
-  width: 263px;
-  height: 40px;
-  border-radius: 6px;
-  margin-top: 6px;
-  color: black;
-  padding-left: 10px;
+	background-color: $inputs-color;
+	border: none;
+	width: 220px;
+	height: 30px;
+	border-radius: 6px;
+	margin-top: 6px;
+	color: black;
+	padding-left: 10px;
 }
 
 textarea {
-  background-color: $inputs-color;
-  border: none;
-  width: 263px;
-  height: 116px;
-  border-radius: 6px;
-  margin-top: 6px;
-  color: black;
-  padding-left: 10px;
+	background-color: $inputs-color;
+	border: none;
+	width: 220px;
+	height: 100px;
+	border-radius: 6px;
+	margin-top: 6px;
+	color: black;
+	padding-left: 10px;
 }
 
 select {
-  background-color: $inputs-color;
-  border: none;
-  width: 263px;
-  height: 40px;
-  border-radius: 6px;
-  margin-top: 6px;
-  padding-left: 10px;
-  color: black;
-  appearance: none;
-  font-weight: bold;
-  font-size: 12px;
-  font-family: $primary-font;
+	background-color: $inputs-color;
+	border: none;
+	width: 220px;
+	height: 30px;
+	border-radius: 6px;
+	margin-top: 6px;
+	padding: 2px 2px 2px 10px;
+	color: black;
+	appearance: none;
+	font-weight: bold;
+	font-size: 12px;
+	font-family: $primary-font;
 
-  background-image: url('https://icons.iconarchive.com/icons/icons8/ios7/128/Arrows-Down-4-icon.png');
-  background-size: 20px 20px;
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  padding-right: 30px;
+	background-image: url("https://icons.iconarchive.com/icons/icons8/ios7/128/Arrows-Down-4-icon.png");
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+	background-position: right 10px center;
+	padding-right: 30px;
 
-  option {
-    background-color: $text-color;
-    color: black;
-    font-weight: bold;
-    font-size: 12px;
-  }
+	option {
+		background-color: $text-color;
+		color: black;
+		font-weight: bold;
+		font-size: 12px;
+	}
 }
 
 .error_field {
-  display: flex;
-  background-color: rgba(234, 116, 116, 0.1);
-  border: 1px solid red;
-  margin-bottom: 10px;
-  border-radius: 5px;
+	display: flex;
+	background-color: rgba(234, 116, 116, 0.1);
+	border: 1px solid red;
+	margin-bottom: 10px;
+	border-radius: 5px;
 }
 
 .error_message {
-  color: red;
-  font-weight: bold;
-  font-size: 12px;
+	color: red;
+	font-weight: bold;
+	font-size: 12px;
 }
 
-
 @media (width < 1100px) {
-  input {
-    width: 220px;
-    height: 35px;
-  }
-  textarea {
-    width: 220px;
-  }
-  select {
-    width: 220px;
-  }
+	input {
+		width: 180px;
+		font-size: 10px;
+	}
+	textarea {
+		width: 180px;
+	}
+	select {
+		width: 180px;
+	}
+	label {
+		font-size: 10px;
+	}
 }
