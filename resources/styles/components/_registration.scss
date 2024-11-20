@@ -111,6 +111,9 @@
 	.registration_header {
 		font-size: 36px;
 	}
+	.registration_section_header {
+		font-size: 16px;
+	}
 }
 
 @media (width < 850px) {
@@ -152,6 +155,9 @@
 			font-size: 12px;
 			margin-left: 0;
 		}
+	}
+	.registration_section_header {
+		font-size: 14px;
 	}
 }
 
