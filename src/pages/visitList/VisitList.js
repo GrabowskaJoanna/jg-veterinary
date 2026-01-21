@@ -25,22 +25,22 @@ const VisitList = () => {
 
   if (token) {
     return (
-      <>
+      <div>
         <TopBar />
         <div className="visit_wrapper">
         <div className="pagination_container">
           <NavTabs />
-          <Pagination />
         </div>
         <div className="visit_container">
           <table className="visit_table">
             <VisitListHeader />
             <VisitListBody items={items} />
           </table>
+            <Pagination />
         </div>
         </div>
         <Footer />
-      </>
+      </div>
     );
   } else {
     return null;

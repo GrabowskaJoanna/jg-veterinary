@@ -1,7 +1,9 @@
 .nav_tabs {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   height: auto;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
 }
 
 .nav_links {
@@ -10,19 +12,22 @@
   justify-content: flex-start;
   background-color: transparent;
   align-items: center;
-  width: 400px;
-  bottom: -10px;
+  width: 100%;
   overflow: visible;
+  bottom: -10px;
 }
 
 .nav_links_item {
   position: relative;
-  width: 250px;
+  flex: 0 0 240px;
+  min-width: 80px;
   clip-path: polygon(0 0, calc(100% - 52px) 0, 100% 52px, 100% 100%, 0 100%);
   text-align: center;
   border-top-left-radius: 12px;
   border-bottom-left-radius: 12px;
   z-index: 1;
+  margin-right: 10px;
+  max-width: 240px;
 
   &:first-of-type {
     box-shadow: -10px 0 0 -8px $shadow-color;
@@ -41,7 +46,6 @@
       align-items: center;
       position: absolute;
       font-weight: bold;
-      right: 30px;
     }
 
   }
@@ -54,7 +58,7 @@
 .link {
   display: block;
   text-decoration: none;
-  padding: 20px 60px 20px 20px;
+  padding: 16px 30px;
   color: $primary-color;
   opacity: 0.5;
   background-color: $text-color;
@@ -63,7 +67,8 @@
   border-bottom-right-radius: 0px;
   border-bottom-left-radius: 0px;
   font-weight: bold;
-  font-size: 24px;
+  font-size: 22px;
+  text-align: center;
 
   &:hover {
     opacity: 1;
@@ -73,72 +78,43 @@
     opacity: 1;
   }
 }
-
-
-@media (width < 1250px) {
-
-  .nav_links_item {
-    width: 220px;
-  }
-
+@media (max-width: 1400px) {
   .link {
-    font-size: 22px;
+    font-size: 18px;
+    padding: 14px 22px;
   }
 }
 
-@media (width < 1000px) {
-
+@media (max-width: 1200px) {
   .nav_links_item {
-    width: 160px;
-
-    &:first-of-type {
-
-    p {
-      width: 20px;
-      height: 20px;
-      right: 35px;
+    flex: 0 0 200px;
+    &:first-of-type p {
+      top: 8px;
     }
   }
-  }
 
   .link {
     font-size: 16px;
+    padding: 12px 18px;
   }
 }
 
-@media (width < 700px) {
+@media (max-width: 960px) {
+  .nav_links_item {
+    min-width: 70px;
+    margin-right: 5px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav_tabs {
+    flex-wrap: wrap;
+  }
+}
+
+@media (width: 450px - 600px) {
   .nav_links {
-    width: 250px;
-    bottom: 0;
-
-    .nav_links_item {
-      width: 180px;
+    left: -10px;
+    justify-content: center;
   }
-
-  .link {
-    font-size: 16px;
-    padding: 15px 60px 15px 15px;
-  }
-}
-}
-
-@media (width < 550px) {
-  .nav_links {
-    width: 220px;
-
-    .nav_links_item {
-
-      &:first-of-type {
-
-        p {
-          visibility: hidden;
-        }
-  }
-
-  .link {
-    font-size: 14px;
-    padding: 12px 40px 12px 12px;
-  }
-}
-}
 }
